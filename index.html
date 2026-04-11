@@ -1,0 +1,1689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liminal Veil — Your Tarot Journal Awaits</title>
+  <meta name="description" content="Liminal Veil is a mystical tarot companion app featuring AI-powered readings, a personal journal, lunar guidance, and 78 illustrated cards. Join the beta today." />
+  <meta property="og:title" content="Liminal Veil — Your Tarot Journal Awaits" />
+  <meta property="og:description" content="A tarot companion for seekers. AI readings, lunar guidance, and a personal journal — all in one app." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold:        #C9A84C;
+      --gold-light:  #E8C97A;
+      --gold-dark:   #8B6A2A;
+      --gold-glow:   rgba(201,168,76,0.18);
+      --gold-border: rgba(201,168,76,0.28);
+      --bg:          #080808;
+      --surface-1:   #0f0f12;
+      --surface-2:   #16161a;
+      --surface-3:   #1e1e24;
+      --text:        #EDE8DC;
+      --text-mid:    rgba(237,232,220,0.72);
+      --text-dim:    rgba(237,232,220,0.50);
+      --radius:      10px;
+      --font-serif:  'Cormorant Garamond', Georgia, serif;
+      --font-display:'Cinzel', serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-serif);
+      font-size: 18px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--gold-light); }
+    img { display: block; max-width: 100%; }
+
+    /* ── Stars background ──────────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 10%, rgba(201,168,76,0.04) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 90%, rgba(130,80,180,0.05) 0%, transparent 55%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Utility ───────────────────────────────────────────────── */
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; position: relative; }
+    .gold { color: var(--gold); }
+    .section-label {
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .section-body {
+      color: var(--text-mid);
+      font-size: 1.05rem;
+      max-width: 560px;
+    }
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 28px auto;
+    }
+    .tag {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border: 1px solid var(--gold-border);
+      border-radius: 20px;
+      color: var(--gold);
+      background: var(--gold-glow);
+    }
+
+    /* ── Buttons ───────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: var(--font-display);
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: all 0.22s;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      color: #080808;
+      font-weight: 700;
+      box-shadow: 0 0 24px rgba(201,168,76,0.25);
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      box-shadow: 0 0 38px rgba(201,168,76,0.45);
+      color: #080808;
+      transform: translateY(-1px);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold-border);
+    }
+    .btn-outline:hover {
+      background: var(--gold-glow);
+      border-color: var(--gold);
+      color: var(--gold-light);
+      transform: translateY(-1px);
+    }
+    .btn-patreon {
+      background: linear-gradient(135deg, #ff424d, #f96854);
+      color: #fff;
+      font-weight: 700;
+    }
+    .btn-patreon:hover {
+      background: linear-gradient(135deg, #f96854, #ff7a6a);
+      color: #fff;
+      box-shadow: 0 0 28px rgba(249,104,84,0.4);
+      transform: translateY(-1px);
+    }
+
+    /* ── Nav ───────────────────────────────────────────────────── */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(8,8,8,0.82);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--gold-border);
+      padding: 16px 0;
+    }
+    #nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      letter-spacing: 0.16em;
+      color: var(--gold);
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--font-display);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta { display: flex; gap: 10px; align-items: center; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { width: 22px; height: 1.5px; background: var(--gold); border-radius: 2px; transition: all 0.2s; }
+
+    /* ── Hero ──────────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 40%, rgba(201,168,76,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 80% 70%, rgba(100,50,150,0.06) 0%, transparent 60%);
+    }
+    .hero-content {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .hero-moon {
+      width: 90px;
+      height: 90px;
+      margin: 0 auto 32px;
+      position: relative;
+      animation: float 6s ease-in-out infinite;
+    }
+    .hero-moon svg { width: 100%; height: 100%; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .hero-eyebrow {
+      font-family: var(--font-display);
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 7vw, 5.2rem);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      line-height: 1.08;
+      margin-bottom: 12px;
+    }
+    .hero-subtitle {
+      font-family: var(--font-display);
+      font-size: clamp(0.85rem, 2vw, 1.1rem);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+    .hero-body {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--text-mid);
+      max-width: 560px;
+      margin: 0 auto 40px;
+      font-style: italic;
+    }
+    .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .hero-badges {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 52px;
+      flex-wrap: wrap;
+    }
+    .hero-badge {
+      text-align: center;
+    }
+    .hero-badge-num {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: var(--gold);
+      display: block;
+    }
+    .hero-badge-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+    .hero-badge-sep {
+      width: 1px;
+      height: 40px;
+      background: var(--gold-border);
+      margin: auto 0;
+    }
+
+    /* ── Features ──────────────────────────────────────────────── */
+    #features {
+      padding: 110px 0;
+      position: relative;
+    }
+    .features-header { text-align: center; margin-bottom: 64px; }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: var(--surface-2);
+      border: 1px solid var(--gold-border);
+      border-radius: 14px;
+      padding: 32px 28px;
+      transition: all 0.24s;
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 14px;
+      background: radial-gradient(ellipse at top left, rgba(201,168,76,0.06), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.24s;
+    }
+    .feature-card:hover { border-color: rgba(201,168,76,0.5); transform: translateY(-3px); }
+    .feature-card:hover::before { opacity: 1; }
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .feature-name {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .feature-desc {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      line-height: 1.65;
+    }
+    .feature-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+    }
+
+    /* ── App Mockup / Screenshots ──────────────────────────────── */
+    #app-preview {
+      padding: 90px 0;
+      background: linear-gradient(180deg, transparent, rgba(201,168,76,0.03) 50%, transparent);
+    }
+    .preview-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .preview-text .section-body { margin-bottom: 28px; }
+    .preview-screens {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+    }
+    .mock-phone {
+      width: 160px;
+      flex-shrink: 0;
+      background: var(--surface-2);
+      border: 1px solid var(--gold-border);
+      border-radius: 24px;
+      padding: 14px 10px;
+      box-shadow: 0 0 40px rgba(201,168,76,0.08);
+    }
+    .mock-phone.large { width: 186px; }
+    .mock-screen {
+      background: var(--surface-1);
+      border-radius: 16px;
+      padding: 18px 14px;
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      overflow: hidden;
+    }
+    .mock-card {
+      width: 100%;
+      height: 90px;
+      background: linear-gradient(135deg, var(--surface-3), var(--surface-2));
+      border: 1px solid var(--gold-border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .mock-card-icon { font-size: 1.6rem; }
+    .mock-title {
+      font-family: var(--font-display);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-align: center;
+    }
+    .mock-moon-icon { font-size: 2.4rem; }
+    .mock-row {
+      display: flex;
+      gap: 6px;
+      width: 100%;
+    }
+    .mock-row-card {
+      flex: 1;
+      height: 54px;
+      background: var(--surface-3);
+      border: 1px solid var(--gold-border);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    /* ── Moon / Lunar section ──────────────────────────────────── */
+    #lunar {
+      padding: 90px 0;
+    }
+    .lunar-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .moon-phases {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .phase-item {
+      text-align: center;
+      padding: 16px 8px;
+      background: var(--surface-2);
+      border: 1px solid var(--gold-border);
+      border-radius: 10px;
+      transition: all 0.2s;
+    }
+    .phase-item:hover {
+      border-color: var(--gold);
+      background: var(--surface-3);
+      transform: translateY(-2px);
+    }
+    .phase-icon { font-size: 1.5rem; margin-bottom: 6px; }
+    .phase-name {
+      font-family: var(--font-display);
+      font-size: 7.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    /* ── Premium / Pricing ─────────────────────────────────────── */
+    #premium {
+      padding: 110px 0;
+      position: relative;
+    }
+    .premium-header { text-align: center; margin-bottom: 56px; }
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .plan-card {
+      background: var(--surface-2);
+      border: 1px solid var(--gold-border);
+      border-radius: 16px;
+      padding: 36px 30px;
+      transition: all 0.24s;
+      position: relative;
+    }
+    .plan-card.featured {
+      border-color: var(--gold);
+      background: linear-gradient(145deg, var(--surface-2), rgba(201,168,76,0.06));
+      box-shadow: 0 0 40px rgba(201,168,76,0.12);
+    }
+    .plan-featured-badge {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold));
+      color: #080808;
+      font-family: var(--font-display);
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 4px 16px;
+      border-radius: 20px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .plan-name {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      margin-bottom: 8px;
+    }
+    .plan-price {
+      font-family: var(--font-display);
+      font-size: 2.6rem;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .plan-price span { font-size: 1rem; color: var(--text-dim); }
+    .plan-desc {
+      font-size: 0.88rem;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+    .plan-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .plan-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.92rem;
+      color: var(--text-mid);
+    }
+    .plan-features li::before {
+      content: '✦';
+      color: var(--gold);
+      font-size: 0.7rem;
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+    .plan-features li.locked { color: var(--text-dim); }
+    .plan-features li.locked::before { content: '○'; color: var(--text-dim); }
+
+    /* ── Signup Form ───────────────────────────────────────────── */
+    #signup {
+      padding: 90px 0;
+      background: linear-gradient(180deg, transparent, rgba(201,168,76,0.03) 50%, transparent);
+    }
+    .signup-box {
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .signup-box .section-title { margin-bottom: 12px; }
+    .signup-box .section-body { margin: 0 auto 32px; }
+    .form-group {
+      display: flex;
+      gap: 0;
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--surface-2);
+      transition: border-color 0.2s;
+    }
+    .form-group:focus-within { border-color: var(--gold); }
+    .form-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      padding: 14px 18px;
+      color: var(--text);
+      font-family: var(--font-serif);
+      font-size: 1rem;
+    }
+    .form-input::placeholder { color: var(--text-dim); }
+    .form-submit {
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      color: #080808;
+      border: none;
+      cursor: pointer;
+      padding: 14px 24px;
+      font-family: var(--font-display);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 700;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .form-submit:hover { background: linear-gradient(135deg, var(--gold), var(--gold-light)); }
+    .form-note {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      margin-top: 12px;
+    }
+    .form-success {
+      display: none;
+      padding: 16px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius);
+      color: var(--gold);
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── Beta / Patreon ────────────────────────────────────────── */
+    #beta {
+      padding: 90px 0;
+    }
+    .beta-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .beta-perks {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 24px 0 32px;
+    }
+    .perk {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 18px;
+      background: var(--surface-2);
+      border: 1px solid var(--gold-border);
+      border-radius: 10px;
+    }
+    .perk-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .perk-text strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 2px;
+    }
+    .perk-text span { font-size: 0.88rem; color: var(--text-dim); }
+    .patreon-visual {
+      background: var(--surface-2);
+      border: 1px solid var(--gold-border);
+      border-radius: 16px;
+      padding: 36px;
+      text-align: center;
+    }
+    .patreon-logo {
+      font-size: 3.5rem;
+      margin-bottom: 16px;
+    }
+    .patreon-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      letter-spacing: 0.14em;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .patreon-sub {
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    /* ── Community ─────────────────────────────────────────────── */
+    #community {
+      padding: 80px 0;
+      background: linear-gradient(180deg, transparent, rgba(201,168,76,0.03) 50%, transparent);
+    }
+    .community-inner { text-align: center; max-width: 640px; margin: 0 auto; }
+    .social-links {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: var(--surface-2);
+      border: 1px solid var(--gold-border);
+      border-radius: 8px;
+      font-family: var(--font-display);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      transition: all 0.2s;
+    }
+    .social-link:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-glow); }
+
+    /* ── Testimonials ──────────────────────────────────────────── */
+    #testimonials {
+      padding: 90px 0;
+    }
+    .testimonials-header { text-align: center; margin-bottom: 48px; }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .testimonial-card {
+      background: var(--surface-2);
+      border: 1px solid var(--gold-border);
+      border-radius: 14px;
+      padding: 28px;
+    }
+    .testimonial-stars {
+      color: var(--gold);
+      font-size: 0.9rem;
+      margin-bottom: 14px;
+      letter-spacing: 0.1em;
+    }
+    .testimonial-text {
+      font-style: italic;
+      color: var(--text-mid);
+      font-size: 1rem;
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+    .testimonial-author {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+    }
+    .testimonial-role {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+    }
+
+    /* ── FAQ ───────────────────────────────────────────────────── */
+    #faq {
+      padding: 90px 0;
+      background: linear-gradient(180deg, transparent, rgba(201,168,76,0.02) 50%, transparent);
+    }
+    .faq-header { text-align: center; margin-bottom: 48px; }
+    .faq-list {
+      max-width: 700px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .faq-item {
+      background: var(--surface-2);
+      border: 1px solid var(--gold-border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      background: transparent;
+      border: none;
+      padding: 20px 24px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+      color: var(--text);
+      gap: 16px;
+    }
+    .faq-arrow {
+      color: var(--gold);
+      flex-shrink: 0;
+      transition: transform 0.22s;
+    }
+    .faq-item.open .faq-arrow { transform: rotate(45deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .faq-item.open .faq-answer { max-height: 300px; }
+    .faq-answer-inner {
+      padding: 0 24px 20px;
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    /* ── Contact ───────────────────────────────────────────────── */
+    #contact {
+      padding: 90px 0;
+    }
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .contact-info .section-body { margin-bottom: 28px; }
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .contact-item-icon {
+      font-size: 1.1rem;
+      width: 36px;
+      height: 36px;
+      background: var(--surface-2);
+      border: 1px solid var(--gold-border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-item-label {
+      font-family: var(--font-display);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 2px;
+    }
+    .contact-item-value {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+    }
+    .contact-form { display: flex; flex-direction: column; gap: 14px; }
+    .contact-input {
+      background: var(--surface-2);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius);
+      padding: 13px 16px;
+      color: var(--text);
+      font-family: var(--font-serif);
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .contact-input:focus { border-color: var(--gold); }
+    .contact-input::placeholder { color: var(--text-dim); }
+    textarea.contact-input { resize: vertical; min-height: 120px; }
+
+    /* ── Footer ────────────────────────────────────────────────── */
+    #footer {
+      border-top: 1px solid var(--gold-border);
+      padding: 48px 0 32px;
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-brand-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .footer-brand-desc {
+      font-size: 0.88rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+      max-width: 280px;
+    }
+    .footer-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      color: var(--gold);
+      margin-top: 14px;
+    }
+    .footer-col-title {
+      font-family: var(--font-display);
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-links a {
+      font-size: 0.88rem;
+      color: var(--text-dim);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-bottom {
+      border-top: 1px solid rgba(201,168,76,0.1);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-copy {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+    }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a { font-size: 0.78rem; color: var(--text-dim); }
+
+    /* ── Scroll animations ─────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Responsive ────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-cta .btn-outline { display: none; }
+      .hamburger { display: flex; }
+
+      .preview-inner,
+      .lunar-inner,
+      .beta-inner,
+      .contact-inner { grid-template-columns: 1fr; }
+
+      .preview-screens { order: -1; }
+
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+
+      .hero-badges { gap: 16px; }
+
+      .moon-phases { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+      .footer-inner { grid-template-columns: 1fr; }
+      .moon-phases { grid-template-columns: repeat(2, 1fr); }
+      .mock-phone { width: 130px; }
+      .mock-phone.large { width: 150px; }
+    }
+
+    /* ── Decorative rune line ──────────────────────────────────── */
+    .rune-divider {
+      text-align: center;
+      font-size: 0.8rem;
+      letter-spacing: 0.5em;
+      color: var(--gold-border);
+      margin: 10px 0;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─────────────── NAV ─────────────── -->
+<nav id="nav">
+  <div class="container">
+    <span class="nav-logo">✦ Liminal Veil</span>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#premium">Premium</a></li>
+      <li><a href="#beta">Beta</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#signup" class="btn btn-outline">Get Early Access</a>
+      <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile menu (simple) -->
+<div id="mobile-menu" style="display:none; position:fixed; top:58px; left:0; right:0; z-index:99; background:rgba(8,8,8,0.97); border-bottom:1px solid var(--gold-border); padding:20px 24px;">
+  <ul style="list-style:none; display:flex; flex-direction:column; gap:18px;">
+    <li><a href="#features" onclick="toggleMenu()" style="font-family:var(--font-display);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-mid);">Features</a></li>
+    <li><a href="#premium" onclick="toggleMenu()" style="font-family:var(--font-display);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-mid);">Premium</a></li>
+    <li><a href="#beta" onclick="toggleMenu()" style="font-family:var(--font-display);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-mid);">Beta</a></li>
+    <li><a href="#faq" onclick="toggleMenu()" style="font-family:var(--font-display);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-mid);">FAQ</a></li>
+    <li><a href="#contact" onclick="toggleMenu()" style="font-family:var(--font-display);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-mid);">Contact</a></li>
+    <li><a href="#signup" onclick="toggleMenu()" class="btn btn-primary" style="text-align:center;">Get Early Access</a></li>
+  </ul>
+</div>
+
+<!-- ─────────────── HERO ─────────────── -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-moon">
+        <svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="45" cy="45" r="44" stroke="rgba(201,168,76,0.2)" stroke-width="1"/>
+          <path d="M45 8 C28 8 14 22 14 45 C14 68 28 82 45 82 C35 72 29 59 29 45 C29 31 35 18 45 8Z" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="1.2"/>
+          <circle cx="45" cy="45" r="26" fill="none" stroke="rgba(201,168,76,0.1)" stroke-width="1" stroke-dasharray="3 4"/>
+          <circle cx="45" cy="45" r="3" fill="#C9A84C" opacity="0.7"/>
+          <text x="45" y="16" text-anchor="middle" font-size="8" fill="rgba(201,168,76,0.5)" font-family="serif">✦</text>
+          <text x="45" y="78" text-anchor="middle" font-size="8" fill="rgba(201,168,76,0.5)" font-family="serif">✦</text>
+        </svg>
+      </div>
+      <p class="hero-eyebrow">The Tarot Companion for Modern Seekers</p>
+      <h1 class="hero-title">Liminal<br><span class="gold">Veil</span></h1>
+      <p class="hero-subtitle">Your Tarot Journal Awaits</p>
+      <p class="hero-body">Step beyond the threshold. AI-powered readings, a personal journal, lunar guidance, and 78 cards — all woven into one mystical companion.</p>
+      <div class="hero-actions">
+        <a href="#signup" class="btn btn-primary">✦ &nbsp;Get Early Access</a>
+        <a href="#beta" class="btn btn-outline">Join the Beta</a>
+      </div>
+      <div class="hero-badges">
+        <div class="hero-badge">
+          <span class="hero-badge-num">78</span>
+          <span class="hero-badge-label">Illustrated Cards</span>
+        </div>
+        <div class="hero-badge-sep"></div>
+        <div class="hero-badge">
+          <span class="hero-badge-num">18</span>
+          <span class="hero-badge-label">Spread Layouts</span>
+        </div>
+        <div class="hero-badge-sep"></div>
+        <div class="hero-badge">
+          <span class="hero-badge-num">8</span>
+          <span class="hero-badge-label">Lunar Phases</span>
+        </div>
+        <div class="hero-badge-sep"></div>
+        <div class="hero-badge">
+          <span class="hero-badge-num">AI</span>
+          <span class="hero-badge-label">Powered Readings</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rune-divider">✦ ✦ ✦</div>
+
+<!-- ─────────────── FEATURES ─────────────── -->
+<section id="features">
+  <div class="container">
+    <div class="features-header reveal">
+      <p class="section-label">What Awaits You</p>
+      <h2 class="section-title">Every Tool a Seeker Needs</h2>
+      <div class="divider"></div>
+      <p class="section-body" style="margin:0 auto;">Liminal Veil brings together ancient wisdom and modern technology in a seamlessly designed tarot experience.</p>
+    </div>
+    <div class="features-grid">
+
+      <div class="feature-card reveal">
+        <span class="feature-icon">🃏</span>
+        <p class="feature-name">Spread Library</p>
+        <p class="feature-desc">Choose from 18 hand-crafted spread layouts — from a simple daily pull to complex Celtic Cross and beyond. Free and premium spreads included.</p>
+        <span class="tag feature-badge">18 Spreads</span>
+      </div>
+
+      <div class="feature-card reveal">
+        <span class="feature-icon">🤖</span>
+        <p class="feature-name">AI-Powered Readings</p>
+        <p class="feature-desc">Receive nuanced, personalized interpretations powered by Claude AI — blending traditional symbolism with your unique context and question.</p>
+        <span class="tag feature-badge">Claude AI</span>
+      </div>
+
+      <div class="feature-card reveal">
+        <span class="feature-icon">📖</span>
+        <p class="feature-name">Personal Journal</p>
+        <p class="feature-desc">Log every reading with mood tags, reflections, and notes. Your journal is private and locked — a sacred space for your inner world.</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <span class="feature-icon">🌙</span>
+        <p class="feature-name">Lunar Guidance</p>
+        <p class="feature-desc">Track all 8 moon phases with personalized tips for each. The Moon Spread adapts its wisdom to the current lunar cycle automatically.</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <span class="feature-icon">📚</span>
+        <p class="feature-name">Browse All 78 Cards</p>
+        <p class="feature-desc">A complete illustrated reference for every card in the deck — upright and reversed meanings, keywords, and elemental correspondences.</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <span class="feature-icon">📸</span>
+        <p class="feature-name">Identify a Card</p>
+        <p class="feature-desc">Snap a photo of any tarot card from any deck and Liminal Veil will identify it and surface its full meaning instantly.</p>
+        <span class="tag feature-badge">Premium</span>
+      </div>
+
+      <div class="feature-card reveal">
+        <span class="feature-icon">☀️</span>
+        <p class="feature-name">Today's Daily Draw</p>
+        <p class="feature-desc">Begin each morning with a single card pull — keywords, orientation, and a reflection prompt to ground your intention for the day.</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <span class="feature-icon">🧠</span>
+        <p class="feature-name">Quiz Yourself</p>
+        <p class="feature-desc">Test your tarot knowledge across three difficulty levels — Beginner, Intermediate, and Advanced — and track your growth over time.</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <span class="feature-icon">🎙️</span>
+        <p class="feature-name">Speak Your Reading</p>
+        <p class="feature-desc">Describe your situation out loud and receive a tailored spread recommendation and reading — a hands-free experience for deep sessions.</p>
+        <span class="tag feature-badge">Premium</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────── APP PREVIEW ─────────────── -->
+<section id="app-preview">
+  <div class="container">
+    <div class="preview-inner">
+      <div class="preview-text reveal">
+        <p class="section-label">The Experience</p>
+        <h2 class="section-title">Crafted for<br>the Contemplative</h2>
+        <div class="divider" style="margin-left:0;"></div>
+        <p class="section-body">Every pixel designed with intention. A deep, immersive dark interface with gold accents — beautiful enough to use as a ritual, intuitive enough to disappear into the background.</p>
+        <br>
+        <p class="section-body">The typography (Cinzel + Cormorant Garamond), the floating moon, the lunar glow — Liminal Veil is a sanctuary, not just an app.</p>
+      </div>
+      <div class="preview-screens reveal">
+        <div class="mock-phone">
+          <div class="mock-screen">
+            <p class="mock-title">Today's Draw</p>
+            <div class="mock-card"><span class="mock-card-icon">🌙</span></div>
+            <p class="mock-title" style="color:var(--text-dim);font-size:7px;">The High Priestess · Reversed</p>
+            <div style="width:100%;height:1px;background:var(--gold-border);"></div>
+            <p class="mock-title" style="color:var(--text-dim);font-size:7px;font-family:var(--font-serif);text-transform:none;letter-spacing:0.04em;font-style:italic;">intuition · mystery · inner voice</p>
+          </div>
+        </div>
+        <div class="mock-phone large" style="align-self:flex-end;">
+          <div class="mock-screen">
+            <p class="mock-title">Reveal the Veil</p>
+            <div class="mock-row">
+              <div class="mock-row-card">🃏</div>
+              <div class="mock-row-card">🌙</div>
+            </div>
+            <div class="mock-row">
+              <div class="mock-row-card">📖</div>
+              <div class="mock-row-card">📚</div>
+            </div>
+            <div class="mock-card" style="height:50px;margin-top:4px;">
+              <span style="font-family:var(--font-display);font-size:8px;letter-spacing:0.14em;color:var(--gold);">NEW MOON · Set Intentions</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────── LUNAR ─────────────── -->
+<section id="lunar">
+  <div class="container">
+    <div class="lunar-inner">
+      <div class="moon-phases reveal">
+        <div class="phase-item"><div class="phase-icon">🌑</div><div class="phase-name">New Moon</div></div>
+        <div class="phase-item"><div class="phase-icon">🌒</div><div class="phase-name">Waxing Crescent</div></div>
+        <div class="phase-item"><div class="phase-icon">🌓</div><div class="phase-name">First Quarter</div></div>
+        <div class="phase-item"><div class="phase-icon">🌔</div><div class="phase-name">Waxing Gibbous</div></div>
+        <div class="phase-item"><div class="phase-icon">🌕</div><div class="phase-name">Full Moon</div></div>
+        <div class="phase-item"><div class="phase-icon">🌖</div><div class="phase-name">Waning Gibbous</div></div>
+        <div class="phase-item"><div class="phase-icon">🌗</div><div class="phase-name">Third Quarter</div></div>
+        <div class="phase-item"><div class="phase-icon">🌘</div><div class="phase-name">Waning Crescent</div></div>
+      </div>
+      <div class="reveal">
+        <p class="section-label">Lunar Wisdom</p>
+        <h2 class="section-title">The Moon Guides Every Reading</h2>
+        <div class="divider" style="margin-left:0;"></div>
+        <p class="section-body">Liminal Veil tracks real lunar phases and surfaces guidance written specifically for each of the 8 moon phases — from setting intentions at the New Moon to releasing what no longer serves at the Third Quarter.</p>
+        <br>
+        <p class="section-body" style="font-style:italic;color:var(--text-dim);">"Under the full moon, nothing stays hidden. What is being illuminated for you?"</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rune-divider">✦ ✦ ✦</div>
+
+<!-- ─────────────── PREMIUM ─────────────── -->
+<section id="premium">
+  <div class="container">
+    <div class="premium-header reveal">
+      <p class="section-label">Choose Your Path</p>
+      <h2 class="section-title">Free to Begin.<br>Premium to Deepen.</h2>
+      <div class="divider"></div>
+      <p class="section-body" style="margin:0 auto;">Start your journey at no cost. Unlock the full depths of Liminal Veil with a Premium subscription.</p>
+    </div>
+    <div class="plans-grid">
+
+      <div class="plan-card reveal">
+        <p class="plan-name">Seeker</p>
+        <p class="plan-price">Free <span>/ forever</span></p>
+        <p class="plan-desc">Everything you need to begin your tarot practice.</p>
+        <ul class="plan-features">
+          <li>Daily card draw with keywords</li>
+          <li>5 free spread layouts</li>
+          <li>Full 78-card reference library</li>
+          <li>Personal reading journal</li>
+          <li>Lunar phase tracker</li>
+          <li>Beginner quiz mode</li>
+          <li class="locked">AI-powered interpretations</li>
+          <li class="locked">Card identification via camera</li>
+          <li class="locked">All 18 spread layouts</li>
+          <li class="locked">Voice-guided readings</li>
+        </ul>
+        <a href="#signup" class="btn btn-outline" style="width:100%;text-align:center;">Start Free</a>
+      </div>
+
+      <div class="plan-card featured reveal">
+        <div class="plan-featured-badge">Most Popular</div>
+        <p class="plan-name">Initiate</p>
+        <p class="plan-price">$4.99 <span>/ month</span></p>
+        <p class="plan-desc">The complete Liminal Veil experience, unlocked.</p>
+        <ul class="plan-features">
+          <li>Everything in Seeker</li>
+          <li>AI-powered card interpretations</li>
+          <li>All 18 spread layouts</li>
+          <li>Card identification via camera</li>
+          <li>Voice-guided readings (Speak mode)</li>
+          <li>Intermediate &amp; Advanced quizzes</li>
+          <li>Priority new feature access</li>
+          <li>Ad-free, distraction-free sanctuary</li>
+        </ul>
+        <a href="#signup" class="btn btn-primary" style="width:100%;text-align:center;">✦ &nbsp;Get Premium</a>
+      </div>
+
+      <div class="plan-card reveal">
+        <p class="plan-name">Patron</p>
+        <p class="plan-price">$9.99 <span>/ month</span></p>
+        <p class="plan-desc">Support the vision and shape the future of Liminal Veil.</p>
+        <ul class="plan-features">
+          <li>Everything in Initiate</li>
+          <li>Beta access to new features</li>
+          <li>Vote on upcoming spreads &amp; features</li>
+          <li>Name in app credits</li>
+          <li>Private Discord community</li>
+          <li>Monthly live Q&amp;A with the creator</li>
+        </ul>
+        <a href="https://www.patreon.com/ohizkimmie" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;text-align:center;">Join via Patreon</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────── SIGNUP ─────────────── -->
+<section id="signup">
+  <div class="container">
+    <div class="signup-box reveal">
+      <p class="section-label">Early Access</p>
+      <h2 class="section-title">Be the First to Enter<br>the <span class="gold">Liminal</span></h2>
+      <div class="divider"></div>
+      <p class="section-body">Drop your email to get notified the moment Liminal Veil opens to the public — plus early-bird pricing and exclusive content for founding seekers.</p>
+      <br>
+      <form id="signup-form" onsubmit="handleSignup(event)">
+        <div class="form-group">
+          <input type="email" class="form-input" id="email-input" placeholder="your@email.com" required />
+          <button type="submit" class="form-submit">Reserve My Spot</button>
+        </div>
+        <p class="form-note">No spam. No noise. Just the veil, lifting.</p>
+      </form>
+      <div class="form-success" id="signup-success">
+        ✦ &nbsp; You're on the list, Seeker. We'll reach out at the threshold.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────── BETA ─────────────── -->
+<section id="beta">
+  <div class="container">
+    <div class="beta-inner">
+      <div class="reveal">
+        <p class="section-label">Beta Program</p>
+        <h2 class="section-title">Help Shape<br>the <span class="gold">Veil</span></h2>
+        <div class="divider" style="margin-left:0;"></div>
+        <p class="section-body">Liminal Veil is being built in the open, with the community of seekers who will use it. Become a Patreon beta tester and gain early access, direct influence, and a permanent seat at the table.</p>
+        <div class="beta-perks">
+          <div class="perk">
+            <span class="perk-icon">🔐</span>
+            <div class="perk-text">
+              <strong>Early Beta Access</strong>
+              <span>Use Liminal Veil before anyone else — features, spreads, and AI updates before public release.</span>
+            </div>
+          </div>
+          <div class="perk">
+            <span class="perk-icon">🗳️</span>
+            <div class="perk-text">
+              <strong>Vote on Features</strong>
+              <span>Tell us what to build next. Your voice directly shapes the roadmap.</span>
+            </div>
+          </div>
+          <div class="perk">
+            <span class="perk-icon">💬</span>
+            <div class="perk-text">
+              <strong>Private Community</strong>
+              <span>A dedicated space for beta testers — share readings, report bugs, and connect with fellow seekers.</span>
+            </div>
+          </div>
+          <div class="perk">
+            <span class="perk-icon">📜</span>
+            <div class="perk-text">
+              <strong>Founding Credit</strong>
+              <span>Your name in the app's credits as a founding supporter. A mark in the archive.</span>
+            </div>
+          </div>
+        </div>
+        <a href="https://www.patreon.com/ohizkimmie" target="_blank" rel="noopener" class="btn btn-patreon">
+          ♦ &nbsp;Become a Beta Tester on Patreon
+        </a>
+      </div>
+      <div class="patreon-visual reveal">
+        <div class="patreon-logo">🔮</div>
+        <p class="patreon-title">Liminal Veil Beta</p>
+        <p class="patreon-sub">"The dreaming that happens in emptiness is the seed of everything that comes next."</p>
+        <div class="divider"></div>
+        <p style="font-family:var(--font-display);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-dim);margin-bottom:18px;">Available Tiers</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--surface-3);border-radius:8px;border:1px solid var(--gold-border);">
+            <span style="font-family:var(--font-display);font-size:0.82rem;letter-spacing:0.08em;color:var(--text);">Seeker</span>
+            <span style="font-family:var(--font-display);font-size:0.82rem;color:var(--gold);">$3 / mo</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:linear-gradient(90deg,rgba(201,168,76,0.08),transparent);border-radius:8px;border:1px solid var(--gold);">
+            <span style="font-family:var(--font-display);font-size:0.82rem;letter-spacing:0.08em;color:var(--gold);">✦ Initiate (Beta)</span>
+            <span style="font-family:var(--font-display);font-size:0.82rem;color:var(--gold);">$7 / mo</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--surface-3);border-radius:8px;border:1px solid var(--gold-border);">
+            <span style="font-family:var(--font-display);font-size:0.82rem;letter-spacing:0.08em;color:var(--text);">High Priestess</span>
+            <span style="font-family:var(--font-display);font-size:0.82rem;color:var(--gold);">$15 / mo</span>
+          </div>
+        </div>
+        <br>
+        <a href="https://www.patreon.com/ohizkimmie" target="_blank" rel="noopener" class="btn btn-patreon" style="width:100%;text-align:center;margin-top:8px;">
+          Join on Patreon ♦
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────── TESTIMONIALS ─────────────── -->
+<section id="testimonials">
+  <div class="container">
+    <div class="testimonials-header reveal">
+      <p class="section-label">From the Community</p>
+      <h2 class="section-title">What Seekers Are Saying</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">✦ ✦ ✦ ✦ ✦</div>
+        <p class="testimonial-text">"The lunar guidance feature alone is worth it. Knowing which moon phase I'm in changes how I approach every reading — Liminal Veil makes that effortless."</p>
+        <p class="testimonial-author">Cass M.</p>
+        <p class="testimonial-role">Daily reader, 7 years</p>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">✦ ✦ ✦ ✦ ✦</div>
+        <p class="testimonial-text">"I've tried a dozen tarot apps. None of them have the aesthetic and depth of Liminal Veil. It actually feels like a ritual tool, not a flashcard app."</p>
+        <p class="testimonial-author">Jordan T.</p>
+        <p class="testimonial-role">Tarot student &amp; journaler</p>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">✦ ✦ ✦ ✦ ✦</div>
+        <p class="testimonial-text">"The AI readings surprised me. They don't feel generic — they engage with your actual question and synthesize the spread in a way that feels genuinely insightful."</p>
+        <p class="testimonial-author">River A.</p>
+        <p class="testimonial-role">Practitioner &amp; beta tester</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rune-divider">✦ ✦ ✦</div>
+
+<!-- ─────────────── COMMUNITY ─────────────── -->
+<section id="community">
+  <div class="container">
+    <div class="community-inner reveal">
+      <p class="section-label">Stay Connected</p>
+      <h2 class="section-title">A Community<br>of <span class="gold">Seekers</span></h2>
+      <div class="divider"></div>
+      <p class="section-body" style="margin:0 auto;">Follow the journey, join the conversation, and be part of building something that matters.</p>
+      <div class="social-links">
+        <a href="#" class="social-link">𝕏 &nbsp;Twitter / X</a>
+        <a href="#" class="social-link">📸 &nbsp;Instagram</a>
+        <a href="#" class="social-link">💬 &nbsp;Discord</a>
+        <a href="https://www.patreon.com/ohizkimmie" target="_blank" rel="noopener" class="social-link">♦ &nbsp;Patreon</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────── FAQ ─────────────── -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-header reveal">
+      <p class="section-label">Questions</p>
+      <h2 class="section-title">Frequently Asked</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Is Liminal Veil free to use?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes — Liminal Veil has a fully functional free tier (Seeker) that includes the daily draw, 5 spread layouts, the full 78-card library, your personal journal, and the lunar phase tracker. Premium unlocks AI interpretations, all 18 spreads, card identification, and voice-guided readings.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How does the AI reading work?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Liminal Veil uses Claude (by Anthropic) to generate personalized interpretations. You describe your question or situation, choose a spread, draw your cards, and Claude synthesizes the spread in context — blending traditional card meanings with your specific reading. It's conversational, nuanced, and surprisingly deep.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          When will the app launch publicly?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">We're currently in active development. Beta testers (via Patreon) get access first. Sign up for the early access list to be notified the moment public access opens — founding seekers also receive special early-bird pricing.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Is my journal private?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Absolutely. Your journal is yours alone — it includes an optional privacy lock so your readings stay hidden on your device. We take your data seriously: journal entries are encrypted and never used for training or shared with third parties.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What is the card identification feature?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Snap a photo of any physical tarot card from any deck. Liminal Veil's AI will identify the card and immediately surface its full meaning, keywords, and reversed interpretation — making it a companion for any deck you own.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What does the Patreon beta include?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Beta testers get early access to the app before public launch, the ability to vote on upcoming features and spreads, access to a private community, and a permanent credit in the app. The Initiate tier ($7/mo) gives full beta access; the High Priestess tier ($15/mo) adds monthly Q&amp;A sessions and expanded influence over the roadmap.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Will there be a mobile app?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Liminal Veil is built mobile-first and is designed to feel like a native app in your browser. Native iOS and Android apps are on the roadmap — beta testers will be the first to know when they launch.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────── CONTACT ─────────────── -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-info reveal">
+        <p class="section-label">Reach Out</p>
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="divider" style="margin-left:0;"></div>
+        <p class="section-body">Questions, partnership inquiries, press, or just wanting to say hello — we'd love to hear from seekers.</p>
+        <br>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon">✉️</div>
+            <div>
+              <p class="contact-item-label">General</p>
+              <a href="mailto:hello@liminalveil.com" class="contact-item-value">hello@liminalveil.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🤝</div>
+            <div>
+              <p class="contact-item-label">Partnerships &amp; Press</p>
+              <a href="mailto:press@liminalveil.com" class="contact-item-value">press@liminalveil.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🔧</div>
+            <div>
+              <p class="contact-item-label">Support</p>
+              <a href="mailto:support@liminalveil.com" class="contact-item-value">support@liminalveil.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form reveal" onsubmit="handleContact(event)">
+        <input type="text" class="contact-input" placeholder="Your name" required />
+        <input type="email" class="contact-input" placeholder="your@email.com" required />
+        <input type="text" class="contact-input" placeholder="Subject" />
+        <textarea class="contact-input" placeholder="Your message..." required></textarea>
+        <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Send Message</button>
+        <p id="contact-success" style="display:none;color:var(--gold);font-style:italic;font-size:0.9rem;">✦ Your message has been sent. We'll respond within 48 hours.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────── FOOTER ─────────────── -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <p class="footer-brand-name">✦ Liminal Veil</p>
+        <p class="footer-brand-desc">A tarot companion for modern seekers. Step beyond the threshold.</p>
+        <a href="mailto:hello@liminalveil.com" class="footer-email">✉ &nbsp;hello@liminalveil.com</a>
+      </div>
+      <div>
+        <p class="footer-col-title">App</p>
+        <ul class="footer-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#premium">Pricing</a></li>
+          <li><a href="#app-preview">Preview</a></li>
+          <li><a href="#lunar">Lunar Guide</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Community</p>
+        <ul class="footer-links">
+          <li><a href="#beta">Beta Program</a></li>
+          <li><a href="https://www.patreon.com/ohizkimmie" target="_blank" rel="noopener">Patreon</a></li>
+          <li><a href="#community">Social</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Support</p>
+        <ul class="footer-links">
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="mailto:support@liminalveil.com">Support</a></li>
+          <li><a href="mailto:press@liminalveil.com">Press</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 Liminal Veil. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  function toggleMenu() {
+    const m = document.getElementById('mobile-menu');
+    m.style.display = m.style.display === 'none' ? 'block' : 'none';
+  }
+
+  // FAQ accordion
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // ── Formspree endpoints ─────────────────────────────────────
+  // Replace these with your actual Formspree form IDs from formspree.io
+  const SIGNUP_FORM_ID  = 'xkopyaza';
+  const CONTACT_FORM_ID = 'xkopyaza';
+
+  // Email signup
+  async function handleSignup(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    const email = document.getElementById('email-input').value;
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    try {
+      const res = await fetch(`https://formspree.io/f/${SIGNUP_FORM_ID}`, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, _subject: 'New Early Access Signup — Liminal Veil' })
+      });
+      if (res.ok) {
+        document.getElementById('signup-form').style.display = 'none';
+        document.getElementById('signup-success').style.display = 'block';
+      } else {
+        btn.textContent = 'Try Again';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Try Again';
+      btn.disabled = false;
+    }
+  }
+
+  // Contact form
+  async function handleContact(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    const fields = e.target.querySelectorAll('input, textarea');
+    const data = {
+      name:    fields[0].value,
+      email:   fields[1].value,
+      subject: fields[2].value,
+      message: fields[3].value,
+      _subject: `Contact from ${fields[0].value} — Liminal Veil`
+    };
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    try {
+      const res = await fetch(`https://formspree.io/f/${CONTACT_FORM_ID}`, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (res.ok) {
+        document.getElementById('contact-success').style.display = 'block';
+        btn.style.display = 'none';
+      } else {
+        btn.textContent = 'Try Again';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Try Again';
+      btn.disabled = false;
+    }
+  }
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Stagger feature cards
+  document.querySelectorAll('.feature-card, .plan-card, .testimonial-card').forEach((card, i) => {
+    card.style.transitionDelay = `${i * 0.07}s`;
+  });
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--gold)' : '';
+    });
+  });
+</script>
+</body>
+</html>
