@@ -4,185 +4,145 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Button Color Preview — Liminal Veil</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       background: #080808;
       font-family: 'Cormorant Garamond', serif;
-      min-height: 100vh;
-      padding: 60px 24px;
-    }
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(80,20,120,0.18) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 40% at 85% 40%, rgba(60,10,100,0.14) 0%, transparent 55%);
-      pointer-events: none;
-    }
-    .container {
-      max-width: 860px;
-      margin: 0 auto;
-      position: relative;
+      padding: 40px 24px 60px;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(80,20,120,0.22) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 85% 60%, rgba(60,10,100,0.16) 0%, transparent 55%);
     }
     h1 {
       font-family: 'Cinzel', serif;
       color: #C9A84C;
-      font-size: 1rem;
+      font-size: 0.9rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
       text-align: center;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
-    .subtitle {
+    .sub {
       text-align: center;
-      color: rgba(237,232,220,0.5);
-      font-size: 0.9rem;
+      color: rgba(237,232,220,0.4);
+      font-size: 0.85rem;
       font-style: italic;
-      margin-bottom: 56px;
+      margin-bottom: 36px;
     }
-    .options {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      max-width: 820px;
+      margin: 0 auto;
     }
-    .option {
+    .card {
       background: #16161a;
       border: 1px solid rgba(201,168,76,0.28);
-      border-radius: 14px;
-      padding: 32px 24px;
+      border-radius: 12px;
+      padding: 24px 20px;
       text-align: center;
     }
-    .option-num {
+    .num {
       font-family: 'Cinzel', serif;
-      font-size: 9px;
+      font-size: 8px;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: rgba(237,232,220,0.4);
-      margin-bottom: 12px;
+      color: rgba(237,232,220,0.35);
+      margin-bottom: 6px;
     }
-    .option-name {
+    .name {
       font-family: 'Cinzel', serif;
       font-size: 1rem;
       color: #EDE8DC;
-      margin-bottom: 4px;
-      letter-spacing: 0.08em;
+      margin-bottom: 3px;
     }
-    .option-hex {
-      font-size: 0.8rem;
-      color: rgba(237,232,220,0.4);
-      margin-bottom: 28px;
+    .hex {
+      font-size: 0.78rem;
+      color: rgba(237,232,220,0.35);
       font-style: italic;
+      margin-bottom: 20px;
     }
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      display: block;
+      width: 100%;
       font-family: 'Cinzel', serif;
-      font-size: 11px;
-      letter-spacing: 0.2em;
+      font-size: 10px;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       font-weight: 700;
-      padding: 14px 28px;
-      border-radius: 10px;
+      padding: 13px 20px;
+      border-radius: 8px;
       border: none;
       cursor: pointer;
-      width: 100%;
-      margin-bottom: 12px;
       color: #fff;
+      margin-bottom: 10px;
       transition: all 0.2s;
     }
-    /* Option 1 — Deep Purple */
-    .btn-purple { background: linear-gradient(135deg, #4a2580, #6B3FA0); }
-    .btn-purple:hover { background: linear-gradient(135deg, #6B3FA0, #8B5FC0); box-shadow: 0 0 28px rgba(107,63,160,0.5); }
+    .btn:last-child { margin-bottom: 0; }
 
-    /* Option 2 — Midnight Violet */
-    .btn-violet { background: linear-gradient(135deg, #2E1A55, #4A2D7A); }
-    .btn-violet:hover { background: linear-gradient(135deg, #4A2D7A, #6A4A9A); box-shadow: 0 0 28px rgba(74,45,122,0.5); }
+    .purple { background: linear-gradient(135deg, #4a2580, #6B3FA0); }
+    .purple:hover { background: linear-gradient(135deg, #6B3FA0, #8B5FC0); box-shadow: 0 0 24px rgba(107,63,160,0.55); }
 
-    /* Option 3 — Gold (unified) */
-    .btn-gold { background: linear-gradient(135deg, #8B6A2A, #C9A84C); color: #080808; }
-    .btn-gold:hover { background: linear-gradient(135deg, #C9A84C, #E8C97A); box-shadow: 0 0 28px rgba(201,168,76,0.45); color: #080808; }
+    .violet { background: linear-gradient(135deg, #2E1A55, #4A2D7A); }
+    .violet:hover { background: linear-gradient(135deg, #4A2D7A, #6A4A9A); box-shadow: 0 0 24px rgba(74,45,122,0.55); }
 
-    /* Option 4 — Deep Teal */
-    .btn-teal { background: linear-gradient(135deg, #0F3D45, #1A5F6B); }
-    .btn-teal:hover { background: linear-gradient(135deg, #1A5F6B, #2A7F8B); box-shadow: 0 0 28px rgba(26,95,107,0.5); }
+    .gold { background: linear-gradient(135deg, #8B6A2A, #C9A84C); color: #080808; }
+    .gold:hover { background: linear-gradient(135deg, #C9A84C, #E8C97A); box-shadow: 0 0 24px rgba(201,168,76,0.5); color: #080808; }
 
-    .divider {
-      width: 40px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, #C9A84C, transparent);
-      margin: 20px auto;
-    }
-    .context-label {
-      font-family: 'Cinzel', serif;
-      font-size: 8px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(237,232,220,0.3);
-      margin-bottom: 10px;
-    }
+    .teal { background: linear-gradient(135deg, #0F3D45, #1A5F6B); }
+    .teal:hover { background: linear-gradient(135deg, #1A5F6B, #2A7F8B); box-shadow: 0 0 24px rgba(26,95,107,0.55); }
+
     .note {
       text-align: center;
-      color: rgba(237,232,220,0.35);
+      color: rgba(237,232,220,0.3);
       font-size: 0.82rem;
       font-style: italic;
-      margin-top: 40px;
+      margin-top: 28px;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Button Color Options</h1>
-    <p class="subtitle">Hover over each button to see the glow effect</p>
+  <h1>Button Color Options</h1>
+  <p class="sub">Hover over each to see the glow — pick a number</p>
 
-    <div class="options">
+  <div class="grid">
 
-      <div class="option">
-        <p class="option-num">Option 1</p>
-        <p class="option-name">Deep Purple</p>
-        <p class="option-hex">#6B3FA0</p>
-        <div class="divider"></div>
-        <p class="context-label">Patreon Buttons</p>
-        <button class="btn btn-purple">♦ &nbsp;Join on Patreon</button>
-        <button class="btn btn-purple">♦ &nbsp;Become a Beta Tester</button>
-      </div>
-
-      <div class="option">
-        <p class="option-num">Option 2</p>
-        <p class="option-name">Midnight Violet</p>
-        <p class="option-hex">#4A2D7A</p>
-        <div class="divider"></div>
-        <p class="context-label">Patreon Buttons</p>
-        <button class="btn btn-violet">♦ &nbsp;Join on Patreon</button>
-        <button class="btn btn-violet">♦ &nbsp;Become a Beta Tester</button>
-      </div>
-
-      <div class="option">
-        <p class="option-num">Option 3</p>
-        <p class="option-name">Unified Gold</p>
-        <p class="option-hex">#C9A84C</p>
-        <div class="divider"></div>
-        <p class="context-label">Patreon Buttons</p>
-        <button class="btn btn-gold">♦ &nbsp;Join on Patreon</button>
-        <button class="btn btn-gold">♦ &nbsp;Become a Beta Tester</button>
-      </div>
-
-      <div class="option">
-        <p class="option-num">Option 4</p>
-        <p class="option-name">Deep Teal</p>
-        <p class="option-hex">#1A5F6B</p>
-        <div class="divider"></div>
-        <p class="context-label">Patreon Buttons</p>
-        <button class="btn btn-teal">♦ &nbsp;Join on Patreon</button>
-        <button class="btn btn-teal">♦ &nbsp;Become a Beta Tester</button>
-      </div>
-
+    <div class="card">
+      <p class="num">Option 1</p>
+      <p class="name">Deep Purple</p>
+      <p class="hex">#6B3FA0</p>
+      <button class="btn purple">♦ &nbsp;Join on Patreon</button>
+      <button class="btn purple">♦ &nbsp;Become a Beta Tester</button>
     </div>
 
-    <p class="note">Tell me which number you prefer and I'll update the site immediately.</p>
+    <div class="card">
+      <p class="num">Option 2</p>
+      <p class="name">Midnight Violet</p>
+      <p class="hex">#4A2D7A</p>
+      <button class="btn violet">♦ &nbsp;Join on Patreon</button>
+      <button class="btn violet">♦ &nbsp;Become a Beta Tester</button>
+    </div>
+
+    <div class="card">
+      <p class="num">Option 3</p>
+      <p class="name">Unified Gold</p>
+      <p class="hex">#C9A84C</p>
+      <button class="btn gold">♦ &nbsp;Join on Patreon</button>
+      <button class="btn gold">♦ &nbsp;Become a Beta Tester</button>
+    </div>
+
+    <div class="card">
+      <p class="num">Option 4</p>
+      <p class="name">Deep Teal</p>
+      <p class="hex">#1A5F6B</p>
+      <button class="btn teal">♦ &nbsp;Join on Patreon</button>
+      <button class="btn teal">♦ &nbsp;Become a Beta Tester</button>
+    </div>
+
   </div>
+  <p class="note">Tell me which number and I'll update the site immediately.</p>
 </body>
 </html>
