@@ -3,11 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Liminal Veil — Your Tarot Journal Awaits</title>
-  <meta name="description" content="Liminal Veil is a mystical tarot companion app featuring AI-powered readings, a personal journal, lunar guidance, and 78 illustrated cards. Join the beta today." />
-  <meta property="og:title" content="Liminal Veil — Your Tarot Journal Awaits" />
+  <title>Liminal Veil — AI Tarot Reading App | Pull. Reflect. Know.</title>
+  <meta name="description" content="Liminal Veil is a mystical tarot companion app featuring AI-powered readings, a personal journal, lunar guidance, and 78 illustrated cards. Start your first reading free." />
+  <meta property="og:title" content="Liminal Veil — AI Tarot Reading App | Pull. Reflect. Know." />
   <meta property="og:description" content="A tarot companion for seekers. AI readings, lunar guidance, and a personal journal — all in one app." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://liminalveil.app" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Liminal Veil — AI Tarot Reading App | Pull. Reflect. Know." />
+  <meta name="twitter:description" content="A tarot companion for seekers. AI readings, lunar guidance, and a personal journal — all in one app." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
@@ -559,8 +563,8 @@
       letter-spacing: 0.08em;
     }
 
-    /* ── Beta ──────────────────────────────────────────────────── */
-    #beta { padding: 90px 0; }
+    /* ── Begin ─────────────────────────────────────────────────── */
+    #begin { padding: 90px 0; }
     .beta-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -770,6 +774,70 @@
 
     .rune-divider { text-align: center; font-size: 0.8rem; letter-spacing: 0.5em; color: var(--gold-border); margin: 10px 0; user-select: none; }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Liminal Veil free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — Liminal Veil has a fully functional free tier that includes the daily draw, 5 spread layouts, the full 78-card library, your personal journal, and the lunar phase tracker. Paid plans unlock AI interpretations, all 18 spreads, card identification, and voice-guided readings."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the AI reading work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Liminal Veil uses AI to generate personalized interpretations. You describe your question or situation, choose a spread, draw your cards, and the AI synthesizes the spread in context — blending traditional card meanings with your specific reading. It's conversational, nuanced, and surprisingly deep."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the difference between Monthly, Annual, and Lifetime?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "All three paid plans unlock the exact same features — it's purely about how you'd like to pay. Monthly is $5.55/mo, Annual is $55/year (saving you over 17%), and Lifetime is a one-time payment of $111 for permanent access including all future features."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I get started — do I need an account?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — head to app.liminalveil.app and create a free account. The free Seeker tier gets you started right away; upgrade anytime if you want the paid features."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my journal private?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. Your journal is yours alone — it includes an optional privacy lock so your readings stay hidden on your device. We take your data seriously: journal entries are encrypted and never used for training or shared with third parties."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the card identification feature?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Snap a photo of any physical tarot card from any deck. Liminal Veil's AI will identify the card and immediately surface its full meaning, keywords, and reversed interpretation — making it a companion for any deck you own."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will there be a mobile app?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Liminal Veil is built mobile-first and is designed to feel like a native app in your browser. Native iOS and Android apps are on the roadmap."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -780,12 +848,11 @@
     <ul class="nav-links">
       <li><a href="#features">Features</a></li>
       <li><a href="#premium">Premium</a></li>
-      <li><a href="#beta">Beta</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-cta">
-      <a href="#signup" class="btn btn-outline">Get Early Access</a>
+      <a href="https://app.liminalveil.app" class="btn btn-outline">Open the App</a>
       <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
         <span></span><span></span><span></span>
       </div>
@@ -798,10 +865,9 @@
   <ul style="list-style:none; display:flex; flex-direction:column; gap:18px;">
     <li><a href="#features" onclick="toggleMenu()" style="font-family:var(--font-display);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-mid);">Features</a></li>
     <li><a href="#premium" onclick="toggleMenu()" style="font-family:var(--font-display);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-mid);">Premium</a></li>
-    <li><a href="#beta" onclick="toggleMenu()" style="font-family:var(--font-display);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-mid);">Beta</a></li>
     <li><a href="#faq" onclick="toggleMenu()" style="font-family:var(--font-display);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-mid);">FAQ</a></li>
     <li><a href="#contact" onclick="toggleMenu()" style="font-family:var(--font-display);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-mid);">Contact</a></li>
-    <li><a href="#signup" onclick="toggleMenu()" class="btn btn-primary" style="text-align:center;">Get Early Access</a></li>
+    <li><a href="https://app.liminalveil.app" onclick="toggleMenu()" class="btn btn-primary" style="text-align:center;">Open the App</a></li>
   </ul>
 </div>
 
@@ -825,8 +891,7 @@
       <p class="hero-catchphrase">Pull. Reflect. Know.</p>
       <p class="hero-body">Step beyond the threshold. AI-powered readings, a personal journal, lunar guidance, and 78 cards — all woven into one mystical companion.</p>
       <div class="hero-actions">
-        <a href="#signup" class="btn btn-primary">✦ &nbsp;Get Early Access</a>
-        <a href="#beta" class="btn btn-outline">Join the Beta</a>
+        <a href="https://app.liminalveil.app" class="btn btn-primary">✦ &nbsp;Open the App</a>
       </div>
       <div class="hero-badges">
         <div class="hero-badge">
@@ -1012,7 +1077,7 @@
           <li>Lunar phase tracker</li>
           <li>Beginner quiz mode</li>
         </ul>
-        <a href="#signup" class="btn btn-outline" style="width:100%;text-align:center;">Start Free</a>
+        <a href="https://app.liminalveil.app" class="btn btn-outline" style="width:100%;text-align:center;">Start Free</a>
       </div>
 
       <div class="plan-card reveal">
@@ -1028,7 +1093,7 @@
           <li>Priority new feature access</li>
           <li>Ad-free, distraction-free sanctuary</li>
         </ul>
-        <a href="#signup" class="btn btn-outline" style="width:100%;text-align:center;">Get Monthly</a>
+        <a href="https://app.liminalveil.app" class="btn btn-outline" style="width:100%;text-align:center;">Get Monthly</a>
       </div>
 
       <div class="plan-card featured reveal">
@@ -1042,7 +1107,7 @@
           <li>Priority new feature access</li>
           <li>Ad-free, distraction-free sanctuary</li>
         </ul>
-        <a href="#signup" class="btn btn-primary" style="width:100%;text-align:center;">✦ &nbsp;Get Annual</a>
+        <a href="https://app.liminalveil.app" class="btn btn-primary" style="width:100%;text-align:center;">✦ &nbsp;Get Annual</a>
       </div>
 
       <div class="plan-card reveal">
@@ -1056,106 +1121,80 @@
           <li>Founding member status</li>
           <li>Name in app credits</li>
         </ul>
-        <a href="#signup" class="btn btn-outline" style="width:100%;text-align:center;">Get Lifetime</a>
+        <a href="https://app.liminalveil.app" class="btn btn-outline" style="width:100%;text-align:center;">Get Lifetime</a>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ─────────────── SIGNUP ─────────────── -->
-<section id="signup">
-  <div class="container">
-    <div class="signup-box reveal">
-      <p class="section-label">Early Access</p>
-      <h2 class="section-title">Be the First to Enter<br>the <span class="gold">Liminal</span></h2>
-      <div class="divider"></div>
-      <p class="section-body">Drop your email to get notified the moment Liminal Veil opens to the public — plus early-bird pricing and exclusive content for founding seekers.</p>
-      <br>
-      <form id="signup-form" onsubmit="handleSignup(event)">
-        <div class="form-group">
-          <input type="email" class="form-input" id="email-input" placeholder="your@email.com" required />
-          <button type="submit" class="form-submit">Reserve My Spot</button>
-        </div>
-        <p class="form-note">No spam. No noise. Just the veil, lifting.</p>
-      </form>
-      <div class="form-success" id="signup-success">
-        ✦ &nbsp; You're on the list, Seeker. We'll reach out at the threshold.
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─────────────── BETA ─────────────── -->
-<section id="beta">
+<!-- ─────────────── BEGIN ─────────────── -->
+<section id="begin">
   <div class="container">
     <div class="beta-inner">
       <div class="reveal">
-        <p class="section-label">Beta Program</p>
-        <h2 class="section-title">Help Shape<br>the <span class="gold">Veil</span></h2>
+        <p class="section-label">Begin</p>
+        <h2 class="section-title">Begin Your<br>First <span class="gold">Reading</span></h2>
         <div class="divider" style="margin-left:0;"></div>
-        <p class="section-body">Liminal Veil is being built in the open, with the community of seekers who will use it. Become a Patreon beta tester and gain early access, direct influence, and a permanent seat at the table.</p>
+        <p class="section-body">The veil is open. Liminal Veil is live and waiting — a free account is all you need to draw your first card. No app to download, no waitlist, no tier to unlock before you start.</p>
         <div class="beta-perks">
           <div class="perk">
-            <span class="perk-icon">🔐</span>
+            <span class="perk-icon">✦</span>
             <div class="perk-text">
-              <strong>Early Beta Access</strong>
-              <span>Use Liminal Veil before anyone else — features, spreads, and AI updates before public release.</span>
+              <strong>Create a free account</strong>
+              <span>Takes under a minute. The Seeker tier is yours, free forever.</span>
             </div>
           </div>
           <div class="perk">
-            <span class="perk-icon">🗳️</span>
+            <span class="perk-icon">◈</span>
             <div class="perk-text">
-              <strong>Vote on Features</strong>
-              <span>Tell us what to build next. Your voice directly shapes the roadmap.</span>
+              <strong>Choose a spread</strong>
+              <span>From a single-card daily draw to layered multi-card spreads, pick the shape your question needs.</span>
             </div>
           </div>
           <div class="perk">
-            <span class="perk-icon">💬</span>
+            <span class="perk-icon">✧</span>
             <div class="perk-text">
-              <strong>Private Community</strong>
-              <span>A dedicated space for beta testers — share readings, report bugs, and connect with fellow seekers.</span>
-            </div>
-          </div>
-          <div class="perk">
-            <span class="perk-icon">📜</span>
-            <div class="perk-text">
-              <strong>Founding Credit</strong>
-              <span>Your name in the app's credits as a founding supporter. A mark in the archive.</span>
+              <strong>Pull. Reflect. Know.</strong>
+              <span>Cards revealed. Meanings surfaced. Your reading, saved to your private journal.</span>
             </div>
           </div>
         </div>
-        <a href="https://www.patreon.com/ohizkimmie" target="_blank" rel="noopener" class="btn btn-patreon">
-          ♦ &nbsp;Become a Beta Tester on Patreon
+        <a href="https://app.liminalveil.app" class="btn btn-primary">
+          ✦ &nbsp;Open the App
         </a>
       </div>
       <div class="patreon-visual reveal">
         <div class="patreon-logo">🔮</div>
-        <p class="patreon-title">Liminal Veil Beta</p>
-        <p class="patreon-sub">"The dreaming that happens in emptiness is the seed of everything that comes next."</p>
+        <p class="patreon-title">Yours, Free Forever</p>
+        <p class="patreon-sub">Everything you need to start a tarot practice — no card required.</p>
         <div class="divider"></div>
-        <p style="font-family:var(--font-display);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-dim);margin-bottom:18px;">Available Tiers</p>
+        <p style="font-family:var(--font-display);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-dim);margin-bottom:18px;">The Seeker Tier Includes</p>
         <div style="display:flex;flex-direction:column;gap:10px;">
-          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--surface-3);border-radius:8px;border:1px solid var(--gold-border);">
-            <span style="font-family:var(--font-display);font-size:0.82rem;letter-spacing:0.08em;color:var(--text);">Seeker</span>
-            <span style="font-family:var(--font-display);font-size:0.82rem;color:var(--gold);">$5 / mo</span>
+          <div style="display:flex;justify-content:flex-start;align-items:center;gap:12px;padding:12px 16px;background:var(--surface-3);border-radius:8px;border:1px solid var(--gold-border);">
+            <span style="color:var(--gold);">✦</span>
+            <span style="font-family:var(--font-display);font-size:0.82rem;letter-spacing:0.08em;color:var(--text);">Daily card draw</span>
           </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:linear-gradient(90deg,rgba(201,168,76,0.08),transparent);border-radius:8px;border:1px solid var(--gold);">
-            <span style="font-family:var(--font-display);font-size:0.82rem;letter-spacing:0.08em;color:var(--gold);">✦ Veil Walker</span>
-            <span style="font-family:var(--font-display);font-size:0.82rem;color:var(--gold);">$20 / mo</span>
+          <div style="display:flex;justify-content:flex-start;align-items:center;gap:12px;padding:12px 16px;background:var(--surface-3);border-radius:8px;border:1px solid var(--gold-border);">
+            <span style="color:var(--gold);">✦</span>
+            <span style="font-family:var(--font-display);font-size:0.82rem;letter-spacing:0.08em;color:var(--text);">Spread layouts</span>
           </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--surface-3);border-radius:8px;border:1px solid var(--gold-border);">
-            <span style="font-family:var(--font-display);font-size:0.82rem;letter-spacing:0.08em;color:var(--text);">Oracle</span>
-            <span style="font-family:var(--font-display);font-size:0.82rem;color:var(--gold);">$50 / mo</span>
+          <div style="display:flex;justify-content:flex-start;align-items:center;gap:12px;padding:12px 16px;background:var(--surface-3);border-radius:8px;border:1px solid var(--gold-border);">
+            <span style="color:var(--gold);">✦</span>
+            <span style="font-family:var(--font-display);font-size:0.82rem;letter-spacing:0.08em;color:var(--text);">Full 78-card library</span>
           </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--surface-3);border-radius:8px;border:1px solid var(--gold-border);">
-            <span style="font-family:var(--font-display);font-size:0.82rem;letter-spacing:0.08em;color:var(--text);">Conduit</span>
-            <span style="font-family:var(--font-display);font-size:0.82rem;color:var(--gold);">$222 / mo</span>
+          <div style="display:flex;justify-content:flex-start;align-items:center;gap:12px;padding:12px 16px;background:var(--surface-3);border-radius:8px;border:1px solid var(--gold-border);">
+            <span style="color:var(--gold);">✦</span>
+            <span style="font-family:var(--font-display);font-size:0.82rem;letter-spacing:0.08em;color:var(--text);">Personal journal</span>
+          </div>
+          <div style="display:flex;justify-content:flex-start;align-items:center;gap:12px;padding:12px 16px;background:var(--surface-3);border-radius:8px;border:1px solid var(--gold-border);">
+            <span style="color:var(--gold);">✦</span>
+            <span style="font-family:var(--font-display);font-size:0.82rem;letter-spacing:0.08em;color:var(--text);">Lunar phase tracker</span>
           </div>
         </div>
-        <br>
-        <a href="https://www.patreon.com/ohizkimmie" target="_blank" rel="noopener" class="btn btn-patreon" style="width:100%;text-align:center;margin-top:8px;">
-          Join on Patreon ♦
+        <p style="font-size:0.8rem;color:var(--text-dim);margin-top:18px;font-style:italic;">Upgrade for AI interpretations, all spreads, and card identification.</p>
+        <a href="https://app.liminalveil.app" class="btn btn-primary" style="width:100%;text-align:center;margin-top:16px;">
+          Start Free →
         </a>
       </div>
     </div>
@@ -1223,11 +1262,11 @@
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
-          When will the app launch publicly?
+          How do I get started — do I need an account?
           <span class="faq-arrow">+</span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">We're currently in active development. Beta testers (via Patreon) get access first. Sign up for the early access list to be notified the moment public access opens — founding seekers also receive special early-bird pricing.</div>
+          <div class="faq-answer-inner">Yes — head to <a href="https://app.liminalveil.app">app.liminalveil.app</a> and create a free account. The free Seeker tier gets you started right away; upgrade anytime if you want the paid features.</div>
         </div>
       </div>
 
@@ -1253,21 +1292,11 @@
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
-          What does the Patreon beta include?
-          <span class="faq-arrow">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">Beta testers get early access to the app before public launch, the ability to vote on upcoming features and spreads, access to a private community, and a permanent credit in the app. The Veil Walker tier ($20/mo) gives full beta access; the Oracle tier ($50/mo) adds expanded influence over the roadmap; and the Conduit tier ($222/mo) is for our most devoted founding supporters.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
           Will there be a mobile app?
           <span class="faq-arrow">+</span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">Liminal Veil is built mobile-first and is designed to feel like a native app in your browser. Native iOS and Android apps are on the roadmap — beta testers will be the first to know when they launch.</div>
+          <div class="faq-answer-inner">Liminal Veil is built mobile-first and is designed to feel like a native app in your browser. Native iOS and Android apps are on the roadmap.</div>
         </div>
       </div>
 
@@ -1342,8 +1371,6 @@
       <div>
         <p class="footer-col-title">Community</p>
         <ul class="footer-links">
-          <li><a href="#beta">Beta Program</a></li>
-          <li><a href="https://www.patreon.com/ohizkimmie" target="_blank" rel="noopener">Patreon</a></li>
           <li><a href="#community">Social</a></li>
         </ul>
       </div>
