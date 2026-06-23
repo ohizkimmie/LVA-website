@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The 78 Tarot Cards — Meanings &amp; Interpretations | Liminal Veil</title>
+  <meta name="description" content="Every tarot card explained: Major Arcana plus Wands, Cups, Swords, and Pentacles. Upright and reversed meanings, narrative interpretations, and practical guidance." />
+  <link rel="canonical" href="https://liminalveil.app/cards/" />
+  <meta property="og:title" content="The 78 Tarot Cards — Meanings &amp; Interpretations | Liminal Veil" />
+  <meta property="og:description" content="Every tarot card explained: Major Arcana plus Wands, Cups, Swords, and Pentacles. Upright and reversed meanings, narrative interpretations, and practical guidance." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://liminalveil.app/cards/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The 78 Tarot Cards — Meanings &amp; Interpretations | Liminal Veil" />
+  <meta name="twitter:description" content="Every tarot card explained: Major Arcana plus Wands, Cups, Swords, and Pentacles. Upright and reversed meanings, narrative interpretations, and practical guidance." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --gold: #C9A84C; --gold-light: #E8C97A; --gold-dark: #8B6A2A;
+    --gold-glow: rgba(201,168,76,0.18); --gold-border: rgba(201,168,76,0.28);
+    --bg: #080808; --surface-1: #0f0f12; --surface-2: #16161a; --surface-3: #1e1e24;
+    --text: #EDE8DC; --text-mid: rgba(237,232,220,0.72); --text-dim: rgba(237,232,220,0.50);
+    --radius: 10px;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-display: 'Cinzel', serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font-serif); font-size: 18px; line-height: 1.7; overflow-x: hidden; }
+  a { color: var(--gold); text-decoration: none; transition: color .2s; }
+  a:hover { color: var(--gold-light); }
+  body::before {
+    content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background:
+      radial-gradient(ellipse at 20% 10%, rgba(201,168,76,0.04) 0%, transparent 55%),
+      radial-gradient(ellipse at 80% 90%, rgba(130,80,180,0.05) 0%, transparent 55%);
+  }
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; position: relative; }
+
+  /* Nav */
+  #nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(8,8,8,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gold-border); }
+  #nav .container { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; }
+  .nav-logo { font-family: var(--font-display); font-size: 16px; letter-spacing: 0.18em; color: var(--gold); }
+  .nav-links { list-style: none; display: flex; gap: 28px; }
+  .nav-links a { font-family: var(--font-display); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-mid); }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta { display: flex; align-items: center; gap: 14px; }
+  .btn { display: inline-block; font-family: var(--font-display); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; padding: 9px 18px; border-radius: 6px; transition: all .25s; cursor: pointer; }
+  .btn-outline { border: 1px solid var(--gold-border); color: var(--gold); }
+  .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,0.08); }
+  .btn-primary { background: rgba(201,168,76,0.2); border: 1px solid var(--gold-border); color: var(--gold); }
+  .btn-primary:hover { background: rgba(201,168,76,0.34); border-color: var(--gold); }
+  .hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; }
+  .hamburger span { width: 22px; height: 1.5px; background: var(--gold); }
+  @media (max-width: 720px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+  }
+
+  /* Footer */
+  #footer { border-top: 1px solid var(--gold-border); padding: 48px 0 32px; margin-top: 64px; position: relative; z-index: 1; background: var(--bg); }
+  .footer-inner { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 32px; }
+  .footer-brand-name { font-family: var(--font-display); font-size: 1.1rem; letter-spacing: 0.14em; color: var(--gold); margin-bottom: 10px; }
+  .footer-brand-desc { font-size: 0.88rem; color: var(--text-dim); line-height: 1.6; max-width: 280px; }
+  .footer-email { display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem; color: var(--gold); margin-top: 14px; }
+  .footer-col-title { font-family: var(--font-display); font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-links a { font-size: 0.88rem; color: var(--text-dim); transition: color .2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid rgba(201,168,76,0.12); }
+  .footer-copy { font-size: 0.78rem; color: var(--text-dim); }
+  .footer-bottom-links { display: flex; gap: 20px; }
+  .footer-bottom-links a { font-size: 0.78rem; color: var(--text-dim); }
+  @media (max-width: 720px) { .footer-inner { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .footer-inner { grid-template-columns: 1fr; } }
+
+  .lib-wrap { max-width: 780px; margin: 0 auto; padding: 96px 18px 64px; position: relative; z-index: 1; }
+  .lib-crumbs { font-family: var(--font-display); font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 18px; }
+  .lib-crumbs a { color: var(--text-mid); }
+  .lib-crumbs a:hover { color: var(--gold); }
+  .lib-eyebrow { font-family: var(--font-display); font-size: 12px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .lib-h1 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: 0.06em; color: var(--text); margin-bottom: 10px; line-height: 1.2; }
+  .lib-intro { font-size: 1.05rem; color: var(--text-mid); font-style: italic; margin-bottom: 28px; }
+
+  /* Search */
+  .lib-search { position: relative; margin-bottom: 22px; }
+  .lib-search input { width: 100%; background: var(--surface-1); border: 1px solid var(--gold-border); border-radius: 6px; color: var(--text); font-family: var(--font-serif); font-size: 18px; font-style: italic; padding: 11px 38px 11px 14px; outline: none; transition: border-color .2s; }
+  .lib-search input:focus { border-color: var(--gold); }
+  .lib-search .icon { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--gold); pointer-events: none; }
+
+  /* Card index list */
+  .lib-section { border: 1px solid var(--gold-border); border-radius: 8px; overflow: hidden; background: var(--surface-1); margin-bottom: 12px; }
+  .lib-section-hd { font-family: var(--font-display); font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-dark); padding: 16px 18px 10px; border-bottom: 1px solid rgba(201,168,76,0.08); }
+  .lib-row { display: flex; align-items: center; gap: 16px; padding: 13px 18px; border-bottom: 1px solid rgba(201,168,76,0.06); color: var(--text); transition: background .15s; }
+  .lib-row:last-child { border-bottom: none; }
+  .lib-row:hover { background: var(--surface-2); color: var(--text); }
+  .lib-row-num { font-family: var(--font-display); font-size: 15px; color: var(--gold-dark); width: 36px; flex-shrink: 0; text-align: center; }
+  .lib-row-name { font-family: var(--font-display); font-size: 18px; color: var(--text); flex: 1; font-weight: 600; }
+  .lib-row-kw { font-size: 16px; color: var(--text-mid); font-style: italic; text-align: right; flex-shrink: 0; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .lib-empty { text-align: center; padding: 48px 24px; color: var(--text-mid); font-style: italic; font-size: 18px; }
+
+  /* Card detail */
+  .cd-hero { background: linear-gradient(160deg, #0D0A18, #0A0D12); padding: 32px 18px 26px; text-align: center; border: 1px solid var(--gold-border); border-radius: 10px; margin-bottom: 14px; }
+  .cd-num { font-family: var(--font-display); font-size: 13px; letter-spacing: 0.35em; color: var(--gold-dark); margin-bottom: 10px; text-transform: uppercase; }
+  .cd-frame { width: 78px; height: 122px; margin: 0 auto 16px; background: linear-gradient(160deg, #1A1520, #0F0C18); border: 1px solid var(--gold-border); border-radius: 6px; display: flex; align-items: center; justify-content: center; position: relative; }
+  .cd-frame::after { content: ''; position: absolute; inset: 4px; border: 1px solid rgba(201,168,76,0.14); border-radius: 2px; }
+  .cd-sym { font-size: 36px; color: var(--gold); opacity: 0.85; position: relative; z-index: 1; }
+  .cd-name { font-family: var(--font-display); font-size: 30px; letter-spacing: 0.08em; color: var(--text); }
+  .kw-box { background: var(--surface-2); padding: 18px; border: 1px solid var(--gold-border); border-radius: 10px; margin-bottom: 12px; }
+  .kw-row { display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start; }
+  .kw-row:last-child { margin-bottom: 0; }
+  .kw-label { font-family: var(--font-display); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); width: 92px; flex-shrink: 0; padding-top: 4px; }
+  .kw-val { font-size: 17px; color: var(--text-mid); font-style: italic; flex: 1; line-height: 1.55; }
+  .meaning-block, .practical-box { background: var(--surface-2); padding: 18px 20px; border: 1px solid var(--gold-border); border-radius: 10px; margin-bottom: 12px; }
+  .mb-label, .pb-label { font-family: var(--font-display); font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .mb-text, .pb-text { font-size: 17px; color: var(--text); line-height: 1.7; }
+  .practical-box { background: var(--surface-1); }
+  .cd-interp { font-size: 1.1rem; color: var(--text-mid); font-style: italic; text-align: center; padding: 22px 14px 6px; line-height: 1.55; }
+
+  /* Spread index accordion */
+  .lib-acc { border: 1px solid rgba(201,168,76,0.18); border-radius: 8px; overflow: hidden; background: var(--surface-1); margin-bottom: 10px; transition: border-color .2s; }
+  .lib-acc.open { border-color: rgba(201,168,76,0.34); }
+  .lib-acc-hd { width: 100%; display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: transparent; border: none; cursor: pointer; text-align: left; color: var(--text); font-family: inherit; }
+  .lib-acc-hd .icon { font-family: var(--font-display); font-size: 19px; color: var(--gold-dark); min-width: 22px; text-align: center; }
+  .lib-acc.open .lib-acc-hd .icon { color: var(--gold); }
+  .lib-acc-label { flex: 1; font-family: var(--font-display); font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-mid); }
+  .lib-acc.open .lib-acc-label { color: var(--gold); }
+  .lib-acc-count { font-family: var(--font-display); font-size: 13px; color: var(--text-dim); letter-spacing: 0.1em; }
+  .lib-acc-chev { font-size: 18px; color: var(--text-dim); margin-left: 10px; transition: transform .2s; }
+  .lib-acc.open .lib-acc-chev { transform: rotate(90deg); color: var(--gold); }
+  .lib-acc-body { display: none; border-top: 1px solid rgba(201,168,76,0.08); }
+  .lib-acc.open .lib-acc-body { display: block; }
+  .lib-srow { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid rgba(201,168,76,0.06); color: var(--text); transition: background .15s; }
+  .lib-srow:last-child { border-bottom: none; }
+  .lib-srow:hover { background: var(--surface-2); color: var(--text); }
+  .lib-srow-sym { font-size: 20px; min-width: 24px; text-align: center; color: var(--gold-dark); }
+  .lib-srow-body { flex: 1; min-width: 0; }
+  .lib-srow-name { font-family: var(--font-display); font-size: 15px; color: var(--text); letter-spacing: 0.04em; }
+  .lib-srow:hover .lib-srow-name { color: var(--gold); }
+  .lib-srow-desc { font-size: 15px; color: var(--text-mid); font-style: italic; margin-top: 2px; line-height: 1.45; }
+  .lib-srow-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+  .tier-free, .tier-premium { font-family: var(--font-display); font-size: 10px; letter-spacing: 0.16em; padding: 2px 6px; border-radius: 4px; }
+  .tier-free { color: #7EC87E; border: 1px solid rgba(126,200,126,0.3); }
+  .tier-premium { color: var(--gold); border: 1px solid rgba(201,168,76,0.35); background: rgba(201,168,76,0.06); }
+  .srow-count { font-family: var(--font-display); font-size: 12px; color: var(--text-dim); letter-spacing: 0.08em; }
+
+  /* Spread detail */
+  .sd-hero { text-align: center; padding: 8px 0 24px; }
+  .sd-sym { font-size: 38px; color: var(--gold); margin-bottom: 12px; line-height: 1; }
+  .sd-meta { display: flex; justify-content: center; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+  .sd-meta span { font-family: var(--font-display); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); border: 1px solid var(--gold-border); padding: 4px 10px; border-radius: 4px; }
+  .sd-desc { font-size: 1.05rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 28px; }
+  .sd-positions-hd { font-family: var(--font-display); font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .sd-pos { display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(201,168,76,0.1); }
+  .sd-pos:last-child { border-bottom: none; }
+  .sd-pos-num { font-family: var(--font-display); font-size: 14px; color: var(--gold); min-width: 30px; padding-top: 3px; }
+  .sd-pos-body { flex: 1; }
+  .sd-pos-name { font-family: var(--font-display); font-size: 16px; color: var(--text); letter-spacing: 0.06em; margin-bottom: 4px; }
+  .sd-pos-desc { font-size: 16px; color: var(--text-mid); font-style: italic; line-height: 1.55; }
+
+  /* Spread layout diagram (ported from in-app SpreadDetail) */
+  .sl-layout-wrap { display: flex; justify-content: center; padding: 26px 18px 30px; background: var(--surface-1); border: 1px solid var(--gold-border); border-radius: 10px; margin: 14px 0 24px; }
+  .sl-layout-title { font-family: var(--font-display); font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; text-align: center; }
+  .sl-card { background: linear-gradient(160deg, #1A1520, #0F0C18); border: 1px solid var(--gold-border); border-radius: 3px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; flex-shrink: 0; }
+  .sl-card::after { content: ''; position: absolute; inset: 3px; border: 1px solid rgba(201,168,76,0.12); border-radius: 1px; pointer-events: none; }
+  .sl-card.empty { background: transparent !important; border: none !important; }
+  .sl-card.empty::after { display: none !important; }
+  .sl-num { font-family: var(--font-display); font-size: 13px; color: var(--gold); position: relative; z-index: 1; }
+  .layout-5 { display: flex; justify-content: center; gap: 8px; align-items: flex-end; padding-bottom: 10px; }
+  .layout-5 .sl-card:nth-child(1) { transform: translateY(12px); }
+  .layout-5 .sl-card:nth-child(2) { transform: translateY(5px); }
+  .layout-5 .sl-card:nth-child(3) { transform: translateY(0); }
+  .layout-5 .sl-card:nth-child(4) { transform: translateY(5px); }
+  .layout-5 .sl-card:nth-child(5) { transform: translateY(12px); }
+  .layout-year .center-card { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 42px; height: 66px; background: linear-gradient(160deg, #201828, #140F1C); border: 1px solid var(--gold); border-radius: 3px; display: flex; align-items: center; justify-content: center; z-index: 2; }
+  .layout-year .center-card .sl-num { font-size: 14px; color: var(--gold-light); }
+
+  /* CTA */
+  .lib-cta { display: inline-block; margin-top: 28px; padding: 14px 32px; background: rgba(201,168,76,0.16); border: 1px solid var(--gold-border); border-radius: 8px; color: var(--gold); font-family: var(--font-display); font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; transition: all .25s; text-align: center; }
+  .lib-cta:hover { background: rgba(201,168,76,0.3); border-color: var(--gold); color: var(--gold-light); }
+  .lib-cta-wrap { text-align: center; margin-top: 28px; }
+</style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"The 78 Tarot Cards","description":"Complete guide to all 78 tarot cards with upright, reversed, and narrative meanings.","url":"https://liminalveil.app/cards/","numberOfItems":78}</script>
+</head>
+<body>
+<nav id="nav">
+  <div class="container">
+    <span class="nav-logo">✦ Liminal Veil</span>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/cards/">Cards</a></li>
+      <li><a href="/spreads/">Spreads</a></li>
+      <li><a href="/#premium">Premium</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="https://app.liminalveil.app" class="btn btn-outline">Open the App</a>
+      <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+<div id="mobile-menu" style="display:none; position:fixed; top:58px; left:0; right:0; z-index:99; background:rgba(8,8,8,0.97); border-bottom:1px solid var(--gold-border); padding:20px 24px;">
+  <ul style="list-style:none; display:flex; flex-direction:column; gap:18px;">
+    <li><a href="/#features" onclick="toggleMenu()" style="font-family:var(--font-display);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-mid);">Features</a></li>
+    <li><a href="/cards/" style="font-family:var(--font-display);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-mid);">Cards</a></li>
+    <li><a href="/spreads/" style="font-family:var(--font-display);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-mid);">Spreads</a></li>
+    <li><a href="/#premium" onclick="toggleMenu()" style="font-family:var(--font-display);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-mid);">Premium</a></li>
+    <li><a href="/#faq" onclick="toggleMenu()" style="font-family:var(--font-display);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-mid);">FAQ</a></li>
+    <li><a href="/#contact" onclick="toggleMenu()" style="font-family:var(--font-display);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-mid);">Contact</a></li>
+    <li><a href="https://app.liminalveil.app" onclick="toggleMenu()" class="btn btn-primary" style="text-align:center;">Open the App</a></li>
+  </ul>
+</div>
+
+<main class="lib-wrap">
+
+    <div class="lib-crumbs"><a href="/">Liminal Veil</a> &nbsp;›&nbsp; The 78 Cards</div>
+    <div class="lib-eyebrow">✦ Card Library</div>
+    <h1 class="lib-h1">The 78 Cards</h1>
+    <p class="lib-intro">Every card in the tarot, with upright and reversed meanings, narrative interpretations, and practical guidance.</p>
+
+    <div class="lib-search">
+      <input id="card-search" type="text" placeholder="Search cards, keywords, suits…" autocomplete="off" />
+      <span class="icon">◎</span>
+    </div>
+    <div id="empty" class="lib-empty" style="display:none;">No cards found.</div>
+
+    <div id="card-sections">
+    <div class="lib-section" data-suit="major">
+      <div class="lib-section-hd">✦  Major Arcana</div>
+      
+        <a class="lib-row" href="/cards/the-fool.html" data-name="the fool" data-kw="new beginnings, spontaneity, leap of faith, innocence, adventure, unlimited potential, teenage excitement recklessness, poor judgment, self-sabotage, fear of the unknown, invincibility complex">
+          <div class="lib-row-num">0</div>
+          <div class="lib-row-name">The Fool</div>
+          <div class="lib-row-kw">New beginnings</div>
+        </a>
+        <a class="lib-row" href="/cards/the-magician.html" data-name="the magician" data-kw="willpower, skill, resourcefulness, manifestation, confidence, taking action manipulation, untapped potential, trickery, wasted talent, self-doubt">
+          <div class="lib-row-num">I</div>
+          <div class="lib-row-name">The Magician</div>
+          <div class="lib-row-kw">Willpower</div>
+        </a>
+        <a class="lib-row" href="/cards/the-high-priestess.html" data-name="the high priestess" data-kw="intuition, inner knowing, mystery, stillness, wisdom, the subconscious, the veil between worlds, mediumship, spiritual connection ignoring intuition, secrets being hidden, information withheld, disconnected from self, disconnected from spirit, surface-level thinking">
+          <div class="lib-row-num">II</div>
+          <div class="lib-row-name">The High Priestess</div>
+          <div class="lib-row-kw">Intuition</div>
+        </a>
+        <a class="lib-row" href="/cards/the-empress.html" data-name="the empress" data-kw="abundance, fertility, creativity, nurturing, nature, sensuality, growth, mother energy, compassion, unconditional love, connected to the feminine divine creative block, neglect, smothering, dependence, insecurity, disconnection from the body, withholding love, severed from the feminine divine">
+          <div class="lib-row-num">III</div>
+          <div class="lib-row-name">The Empress</div>
+          <div class="lib-row-kw">Abundance</div>
+        </a>
+        <a class="lib-row" href="/cards/the-emperor.html" data-name="the emperor" data-kw="structure, stability, authority, leadership, protection, discipline, logic, connected to the masculine divine rigidity, control, abuse of power, domination, disconnected from the masculine divine, emotional suppression, tyranny">
+          <div class="lib-row-num">IV</div>
+          <div class="lib-row-name">The Emperor</div>
+          <div class="lib-row-kw">Structure</div>
+        </a>
+        <a class="lib-row" href="/cards/the-hierophant.html" data-name="the hierophant" data-kw="tradition, spiritual guidance, institutions, belief systems, ritual, mentorship, sacred knowledge, community blind obedience, inherited beliefs without question, rebellion against tradition, corruption within institutions, spiritual manipulation, breaking free from convention">
+          <div class="lib-row-num">V</div>
+          <div class="lib-row-name">The Hierophant</div>
+          <div class="lib-row-kw">Tradition</div>
+        </a>
+        <a class="lib-row" href="/cards/the-lovers.html" data-name="the lovers" data-kw="alignment, duality, conscious choice, authenticity, harmony, values, integrity, union of opposites misalignment, poor choices, self-betrayal, inner conflict, choosing against your values, imbalance, avoidance">
+          <div class="lib-row-num">VI</div>
+          <div class="lib-row-name">The Lovers</div>
+          <div class="lib-row-kw">Alignment</div>
+        </a>
+        <a class="lib-row" href="/cards/the-chariot.html" data-name="the chariot" data-kw="willpower, determination, victory, control, focus, forward momentum, discipline, harnessing opposing forces, speed, swift movement lack of control, aggression, losing direction, self-discipline breakdown, obstacles, spinning your wheels, slowdown, stagnation">
+          <div class="lib-row-num">VII</div>
+          <div class="lib-row-name">The Chariot</div>
+          <div class="lib-row-kw">Willpower</div>
+        </a>
+        <a class="lib-row" href="/cards/strength.html" data-name="strength" data-kw="inner strength, courage, patience, compassion, soft power, resilience, taming the ego, gentle control self-doubt, weakness, fear, loss of control, raw unchecked emotion, insecurity, inner critic">
+          <div class="lib-row-num">VIII</div>
+          <div class="lib-row-name">Strength</div>
+          <div class="lib-row-kw">Inner strength</div>
+        </a>
+        <a class="lib-row" href="/cards/the-hermit.html" data-name="the hermit" data-kw="solitude, introspection, inner guidance, wisdom, soul searching, stillness, stepping back, enlightenment isolation, loneliness, withdrawal, losing your way, refusing guidance, disconnection, hiding from the world">
+          <div class="lib-row-num">IX</div>
+          <div class="lib-row-name">The Hermit</div>
+          <div class="lib-row-kw">Solitude</div>
+        </a>
+        <a class="lib-row" href="/cards/wheel-of-fortune.html" data-name="wheel of fortune" data-kw="cycles, fate, turning points, luck, destiny, change, alignment, divine timing bad luck, resistance to change, breaking cycles, delays, being stuck, fighting the inevitable">
+          <div class="lib-row-num">X</div>
+          <div class="lib-row-name">Wheel of Fortune</div>
+          <div class="lib-row-kw">Cycles</div>
+        </a>
+        <a class="lib-row" href="/cards/justice.html" data-name="justice" data-kw="fairness, truth, cause and effect, accountability, balance, clarity, integrity injustice, dishonesty, avoidance of accountability, imbalance, corruption, unfair outcomes">
+          <div class="lib-row-num">XI</div>
+          <div class="lib-row-name">Justice</div>
+          <div class="lib-row-kw">Fairness</div>
+        </a>
+        <a class="lib-row" href="/cards/the-hanged-one.html" data-name="the hanged one" data-kw="pause, surrender, new perspective, waiting, letting go, suspension, seeing things differently, voluntary sacrifice stalling, refusing to surrender, unnecessary sacrifice, stuck in limbo, resistance, delayed action">
+          <div class="lib-row-num">XII</div>
+          <div class="lib-row-name">The Hanged One</div>
+          <div class="lib-row-kw">Pause</div>
+        </a>
+        <a class="lib-row" href="/cards/death.html" data-name="death" data-kw="transformation, endings, transition, letting go, rebirth, inevitable change, closing doors resistance to change, fear of endings, clinging to the past, refusing to let go, stagnation, delayed transformation">
+          <div class="lib-row-num">XIII</div>
+          <div class="lib-row-name">Death</div>
+          <div class="lib-row-kw">Transformation</div>
+        </a>
+        <a class="lib-row" href="/cards/temperance.html" data-name="temperance" data-kw="balance, moderation, patience, harmony, purpose, alchemy, flow, the middle path imbalance, excess, self-indulgence, burnout, discord, lack of vision, overextension, losing your way">
+          <div class="lib-row-num">XIV</div>
+          <div class="lib-row-name">Temperance</div>
+          <div class="lib-row-kw">Balance</div>
+        </a>
+        <a class="lib-row" href="/cards/the-devil.html" data-name="the devil" data-kw="addiction, materialism, bondage, shadow self, entrapment, desire, excess, co-dependency freedom, releasing chains, breaking patterns, restoring control, self-awareness, reclaiming power">
+          <div class="lib-row-num">XV</div>
+          <div class="lib-row-name">The Devil</div>
+          <div class="lib-row-kw">Addiction</div>
+        </a>
+        <a class="lib-row" href="/cards/the-tower.html" data-name="the tower" data-kw="sudden upheaval, chaos, destruction, revelation, disruption, unexpected change, collapse, awakening, ego destruction avoiding disaster, delaying the inevitable, resisting change, fear of upheaval, internal collapse">
+          <div class="lib-row-num">XVI</div>
+          <div class="lib-row-name">The Tower</div>
+          <div class="lib-row-kw">Sudden upheaval</div>
+        </a>
+        <a class="lib-row" href="/cards/the-star.html" data-name="the star" data-kw="hope, renewal, healing, faith, serenity, inspiration, calm after the storm, trust in the universe, purpose hopelessness, lost faith, disconnection, despair, doubt, feeling cursed, spiritual disconnect, giving up">
+          <div class="lib-row-num">XVII</div>
+          <div class="lib-row-name">The Star</div>
+          <div class="lib-row-kw">Hope</div>
+        </a>
+        <a class="lib-row" href="/cards/the-moon.html" data-name="the moon" data-kw="illusion, fear, the unconscious, intuition, confusion, anxiety, the unknown, hidden truths, subconscious patterns confusion lifting, fear releasing, repressed emotions surfacing, clarity returning, facing reality">
+          <div class="lib-row-num">XVIII</div>
+          <div class="lib-row-name">The Moon</div>
+          <div class="lib-row-kw">Illusion</div>
+        </a>
+        <a class="lib-row" href="/cards/the-sun.html" data-name="the sun" data-kw="joy, success, vitality, optimism, clarity, abundance, celebration, confidence, childlike wonder, authenticity negativity, depression, sadness, self-doubt, lack of clarity, blocked joy, dimmed light">
+          <div class="lib-row-num">XIX</div>
+          <div class="lib-row-name">The Sun</div>
+          <div class="lib-row-kw">Joy</div>
+        </a>
+        <a class="lib-row" href="/cards/judgement.html" data-name="judgement" data-kw="awakening, reckoning, self-reflection, rebirth, accountability, karma, a higher calling, transformation, evaluation self-doubt, ignoring the call, harsh self-criticism, refusing accountability, stuck in the past, avoiding reckoning">
+          <div class="lib-row-num">XX</div>
+          <div class="lib-row-name">Judgement</div>
+          <div class="lib-row-kw">Awakening</div>
+        </a>
+        <a class="lib-row" href="/cards/the-world.html" data-name="the world" data-kw="completion, wholeness, fulfillment, achievement, integration, unity, celebration, the end of a cycle, total awareness incomplete, loose ends, delayed success, avoiding closure, stagnation, not yet done, resisting the finish line">
+          <div class="lib-row-num">XXI</div>
+          <div class="lib-row-name">The World</div>
+          <div class="lib-row-kw">Completion</div>
+        </a>
+    </div>
+    <div class="lib-section" data-suit="wands">
+      <div class="lib-section-hd">✶  Wands</div>
+      
+        <a class="lib-row" href="/cards/ace-of-wands.html" data-name="ace of wands" data-kw="new beginnings, inspiration, creative spark, passion, potential, willpower, boldness, finding your voice lack of energy, creative block, delays, false starts, lost passion, directionless, boredom">
+          <div class="lib-row-num">Ace</div>
+          <div class="lib-row-name">Ace of Wands</div>
+          <div class="lib-row-kw">New beginnings</div>
+        </a>
+        <a class="lib-row" href="/cards/two-of-wands.html" data-name="two of wands" data-kw="planning, vision, future thinking, decisions, expansion, stepping outside your comfort zone, the world at your hands fear of change, poor planning, playing it safe, lack of direction, hesitation, staying stuck">
+          <div class="lib-row-num">Two</div>
+          <div class="lib-row-name">Two of Wands</div>
+          <div class="lib-row-kw">Planning</div>
+        </a>
+        <a class="lib-row" href="/cards/three-of-wands.html" data-name="three of wands" data-kw="expansion, looking ahead, growth, progress, foresight, opportunity, moving forward, early success obstacles, delays, frustration, lack of foresight, stagnation, plans falling through, reassessment needed">
+          <div class="lib-row-num">Three</div>
+          <div class="lib-row-name">Three of Wands</div>
+          <div class="lib-row-kw">Expansion</div>
+        </a>
+        <a class="lib-row" href="/cards/four-of-wands.html" data-name="four of wands" data-kw="celebration, milestone, community, harmony, homecoming, joy, stability, reward lack of support, disharmony, tension at home, private celebration, instability, delayed recognition">
+          <div class="lib-row-num">Four</div>
+          <div class="lib-row-name">Four of Wands</div>
+          <div class="lib-row-kw">Celebration</div>
+        </a>
+        <a class="lib-row" href="/cards/five-of-wands.html" data-name="five of wands" data-kw="conflict, competition, rivalry, chaos, disagreement, clashing egos, lack of cooperation avoiding conflict, finding common ground, resolving tension, inner conflict, respecting differences">
+          <div class="lib-row-num">Five</div>
+          <div class="lib-row-name">Five of Wands</div>
+          <div class="lib-row-kw">Conflict</div>
+        </a>
+        <a class="lib-row" href="/cards/six-of-wands.html" data-name="six of wands" data-kw="victory, success, public recognition, confidence, pride, achievement, momentum, leadership lack of recognition, excess pride, fall from grace, self-doubt, delayed success, seeking validation">
+          <div class="lib-row-num">Six</div>
+          <div class="lib-row-name">Six of Wands</div>
+          <div class="lib-row-kw">Victory</div>
+        </a>
+        <a class="lib-row" href="/cards/seven-of-wands.html" data-name="seven of wands" data-kw="defense, perseverance, holding your ground, standing up for yourself, determination, resilience, under pressure giving up, overwhelmed, loss of confidence, caving to pressure, backing down, exhaustion">
+          <div class="lib-row-num">Seven</div>
+          <div class="lib-row-name">Seven of Wands</div>
+          <div class="lib-row-kw">Defense</div>
+        </a>
+        <a class="lib-row" href="/cards/eight-of-wands.html" data-name="eight of wands" data-kw="rapid movement, swift action, momentum, news, travel, clarity, things accelerating, no obstacles delays, slowdown, frustration, miscommunication, losing momentum, waiting, scattered energy">
+          <div class="lib-row-num">Eight</div>
+          <div class="lib-row-name">Eight of Wands</div>
+          <div class="lib-row-kw">Rapid movement</div>
+        </a>
+        <a class="lib-row" href="/cards/nine-of-wands.html" data-name="nine of wands" data-kw="resilience, grit, persistence, last stand, boundaries, battle-worn, nearly there, don&#39;t quit now exhaustion, giving up, questioning yourself, defensive walls, burnout, paranoia, refusing to bend">
+          <div class="lib-row-num">Nine</div>
+          <div class="lib-row-name">Nine of Wands</div>
+          <div class="lib-row-kw">Resilience</div>
+        </a>
+        <a class="lib-row" href="/cards/ten-of-wands.html" data-name="ten of wands" data-kw="burden, overcommitment, responsibility, struggle, carrying too much, hard work, overwhelm, nearly home burned out, inability to delegate, dumping burdens, learning to let go, overstressed, collapsing under weight">
+          <div class="lib-row-num">Ten</div>
+          <div class="lib-row-name">Ten of Wands</div>
+          <div class="lib-row-kw">Burden</div>
+        </a>
+        <a class="lib-row" href="/cards/page-of-wands.html" data-name="page of wands" data-kw="curiosity, enthusiasm, free spirit, new ideas, adventurous, creative spark, fearlessness, exploration lack of direction, procrastination, recklessness, creating conflict, wasted potential, all spark no follow-through">
+          <div class="lib-row-num">Page</div>
+          <div class="lib-row-name">Page of Wands</div>
+          <div class="lib-row-kw">Curiosity</div>
+        </a>
+        <a class="lib-row" href="/cards/knight-of-wands.html" data-name="knight of wands" data-kw="action, adventure, fearlessness, impulsive, energy, travel, passion, charming, bold recklessness, anger, impulsiveness, hothead, burnout, scattered, all gas no brakes">
+          <div class="lib-row-num">Knight</div>
+          <div class="lib-row-name">Knight of Wands</div>
+          <div class="lib-row-kw">Action</div>
+        </a>
+        <a class="lib-row" href="/cards/queen-of-wands.html" data-name="queen of wands" data-kw="confidence, independence, charisma, passion, warmth, determination, courage, magnetic, bold jealousy, insecurity, selfishness, manipulation, burnout, demanding, temperamental">
+          <div class="lib-row-num">Queen</div>
+          <div class="lib-row-name">Queen of Wands</div>
+          <div class="lib-row-kw">Confidence</div>
+        </a>
+        <a class="lib-row" href="/cards/king-of-wands.html" data-name="king of wands" data-kw="visionary, leader, entrepreneur, bold, charismatic, big picture thinking, inspiration, natural authority impulsive, overbearing, arrogant, unrealistic expectations, forceful, domineering, all vision no execution">
+          <div class="lib-row-num">King</div>
+          <div class="lib-row-name">King of Wands</div>
+          <div class="lib-row-kw">Visionary</div>
+        </a>
+    </div>
+    <div class="lib-section" data-suit="cups">
+      <div class="lib-section-hd">○  Cups</div>
+      
+        <a class="lib-row" href="/cards/ace-of-cups.html" data-name="ace of cups" data-kw="new feelings, emotional beginnings, love, intuition, spirituality, overflow, openness, creative flow emotional loss, blocked feelings, emptiness, creative block, repressed emotions, closed off, self-love needed">
+          <div class="lib-row-num">Ace</div>
+          <div class="lib-row-name">Ace of Cups</div>
+          <div class="lib-row-kw">New feelings</div>
+        </a>
+        <a class="lib-row" href="/cards/two-of-cups.html" data-name="two of cups" data-kw="connection, partnership, mutual attraction, union, harmony, balance, deep bond, coming together imbalance, broken connection, one-sidedness, disharmony, disconnection, tension, lost balance">
+          <div class="lib-row-num">Two</div>
+          <div class="lib-row-name">Two of Cups</div>
+          <div class="lib-row-kw">Connection</div>
+        </a>
+        <a class="lib-row" href="/cards/three-of-cups.html" data-name="three of cups" data-kw="friendship, celebration, community, joy, reunion, togetherness, sisterhood, abundance overindulgence, gossip, isolation, falling out, exclusion, cancelled plans, toxic group dynamics">
+          <div class="lib-row-num">Three</div>
+          <div class="lib-row-name">Three of Cups</div>
+          <div class="lib-row-kw">Friendship</div>
+        </a>
+        <a class="lib-row" href="/cards/four-of-cups.html" data-name="four of cups" data-kw="apathy, contemplation, boredom, withdrawal, disillusionment, taking things for granted, missed opportunities clarity returning, new motivation, re-engagement, recognizing what you have, emerging from withdrawal">
+          <div class="lib-row-num">Four</div>
+          <div class="lib-row-name">Four of Cups</div>
+          <div class="lib-row-kw">Apathy</div>
+        </a>
+        <a class="lib-row" href="/cards/five-of-cups.html" data-name="five of cups" data-kw="loss, grief, disappointment, regret, self-pity, mourning, dwelling on the past acceptance, moving on, finding peace, recovery, perspective shift, healing">
+          <div class="lib-row-num">Five</div>
+          <div class="lib-row-name">Five of Cups</div>
+          <div class="lib-row-kw">Loss</div>
+        </a>
+        <a class="lib-row" href="/cards/six-of-cups.html" data-name="six of cups" data-kw="nostalgia, childhood memories, innocence, joy, the past, familiarity, healing, simpler times clinging to the past, stuck in nostalgia, leaving home, independence, moving forward, rose-tinted glasses">
+          <div class="lib-row-num">Six</div>
+          <div class="lib-row-name">Six of Cups</div>
+          <div class="lib-row-kw">Nostalgia</div>
+        </a>
+        <a class="lib-row" href="/cards/seven-of-cups.html" data-name="seven of cups" data-kw="illusion, fantasy, wishful thinking, choices, daydreaming, confusion, temptation, searching for purpose clarity, decisiveness, cutting through illusion, overwhelm, lack of purpose, reality check">
+          <div class="lib-row-num">Seven</div>
+          <div class="lib-row-name">Seven of Cups</div>
+          <div class="lib-row-kw">Illusion</div>
+        </a>
+        <a class="lib-row" href="/cards/eight-of-cups.html" data-name="eight of cups" data-kw="walking away, disillusionment, leaving behind, abandonment, soul searching, moving on, emotional courage avoidance, fear of change, fear of loss, staying in the wrong situation, stagnation, settling">
+          <div class="lib-row-num">Eight</div>
+          <div class="lib-row-name">Eight of Cups</div>
+          <div class="lib-row-kw">Walking away</div>
+        </a>
+        <a class="lib-row" href="/cards/nine-of-cups.html" data-name="nine of cups" data-kw="satisfaction, emotional fulfillment, luxury, wish granted, contentment, gratitude, dreams coming true dissatisfaction, lack of inner joy, smugness, unfulfilled wishes, emptiness beneath the surface">
+          <div class="lib-row-num">Nine</div>
+          <div class="lib-row-name">Nine of Cups</div>
+          <div class="lib-row-kw">Satisfaction</div>
+        </a>
+        <a class="lib-row" href="/cards/ten-of-cups.html" data-name="ten of cups" data-kw="happiness, fulfillment, harmony, family, lasting love, domestic bliss, dreams come true, emotional abundance shattered dreams, broken family, disharmony, disconnection, keeping up appearances, unrealistic expectations">
+          <div class="lib-row-num">Ten</div>
+          <div class="lib-row-name">Ten of Cups</div>
+          <div class="lib-row-kw">Happiness</div>
+        </a>
+        <a class="lib-row" href="/cards/page-of-cups.html" data-name="page of cups" data-kw="curiosity, creativity, intuition, dreamy, surprise, emotional openness, new inspiration, childlike wonder creative block, emotional immaturity, self-doubt, repressed feelings, inner critic, insecurity, blocked intuition">
+          <div class="lib-row-num">Page</div>
+          <div class="lib-row-name">Page of Cups</div>
+          <div class="lib-row-kw">Curiosity</div>
+        </a>
+        <a class="lib-row" href="/cards/knight-of-cups.html" data-name="knight of cups" data-kw="romance, charm, following the heart, idealism, proposals, emotional courage, offers, creativity moodiness, disappointment, emotional manipulation, unrealistic expectations, jealousy, heartbreaker, avoidance">
+          <div class="lib-row-num">Knight</div>
+          <div class="lib-row-name">Knight of Cups</div>
+          <div class="lib-row-kw">Romance</div>
+        </a>
+        <a class="lib-row" href="/cards/queen-of-cups.html" data-name="queen of cups" data-kw="compassion, emotional intelligence, intuition, nurturing, empathy, calm, inner knowing, sensitivity emotional imbalance, co-dependency, self-neglect, overwhelm, moodiness, repressed feelings, giving too much">
+          <div class="lib-row-num">Queen</div>
+          <div class="lib-row-name">Queen of Cups</div>
+          <div class="lib-row-kw">Compassion</div>
+        </a>
+        <a class="lib-row" href="/cards/king-of-cups.html" data-name="king of cups" data-kw="emotional maturity, wisdom, balance, compassion, diplomacy, calm authority, creativity, emotional intelligence emotional manipulation, moodiness, volatility, coldness, instability, using emotions as a weapon, narcissism">
+          <div class="lib-row-num">King</div>
+          <div class="lib-row-name">King of Cups</div>
+          <div class="lib-row-kw">Emotional maturity</div>
+        </a>
+    </div>
+    <div class="lib-section" data-suit="swords">
+      <div class="lib-section-hd">◆  Swords</div>
+      
+        <a class="lib-row" href="/cards/ace-of-swords.html" data-name="ace of swords" data-kw="breakthrough, clarity, truth, sharp mind, new ideas, mental force, cutting through confusion, communication confusion, chaos, brutality, clouded thinking, miscommunication, blocked clarity, destructive words">
+          <div class="lib-row-num">Ace</div>
+          <div class="lib-row-name">Ace of Swords</div>
+          <div class="lib-row-kw">Breakthrough</div>
+        </a>
+        <a class="lib-row" href="/cards/two-of-swords.html" data-name="two of swords" data-kw="indecision, stalemate, avoidance, difficult choices, blocked emotions, denial, needing more information confusion, lesser of two evils, no right answer, delayed decision, information overload, mental gridlock">
+          <div class="lib-row-num">Two</div>
+          <div class="lib-row-name">Two of Swords</div>
+          <div class="lib-row-kw">Indecision</div>
+        </a>
+        <a class="lib-row" href="/cards/three-of-swords.html" data-name="three of swords" data-kw="heartbreak, grief, betrayal, sorrow, rejection, pain, loss, difficult truths recovery, forgiveness, moving on, releasing grief, healing, perspective returning">
+          <div class="lib-row-num">Three</div>
+          <div class="lib-row-name">Three of Swords</div>
+          <div class="lib-row-kw">Heartbreak</div>
+        </a>
+        <a class="lib-row" href="/cards/four-of-swords.html" data-name="four of swords" data-kw="rest, restoration, contemplation, retreat, recovery, stillness, stepping back, mental recharge restlessness, burnout, stress, inability to rest, forced back into action, mental exhaustion">
+          <div class="lib-row-num">Four</div>
+          <div class="lib-row-name">Four of Swords</div>
+          <div class="lib-row-kw">Rest</div>
+        </a>
+        <a class="lib-row" href="/cards/five-of-swords.html" data-name="five of swords" data-kw="conflict, win at all costs, underhanded tactics, ego battles, hollow victory, sneakiness, discord lingering resentment, desire to reconcile, forgiveness, aftermath of conflict, choosing peace">
+          <div class="lib-row-num">Five</div>
+          <div class="lib-row-name">Five of Swords</div>
+          <div class="lib-row-kw">Conflict</div>
+        </a>
+        <a class="lib-row" href="/cards/six-of-swords.html" data-name="six of swords" data-kw="transition, moving on, leaving behind, calmer waters ahead, healing journey, passage, necessary change emotional baggage, unresolved issues, resisting transition, unable to move on, carrying the past">
+          <div class="lib-row-num">Six</div>
+          <div class="lib-row-name">Six of Swords</div>
+          <div class="lib-row-kw">Transition</div>
+        </a>
+        <a class="lib-row" href="/cards/seven-of-swords.html" data-name="seven of swords" data-kw="deception, betrayal, stealth, getting away with something, strategy, avoidance, going it alone coming clean, getting caught, rethinking approach, conscience catching up, confession, exposing deceit">
+          <div class="lib-row-num">Seven</div>
+          <div class="lib-row-name">Seven of Swords</div>
+          <div class="lib-row-kw">Deception</div>
+        </a>
+        <a class="lib-row" href="/cards/eight-of-swords.html" data-name="eight of swords" data-kw="imprisonment, entrapment, self-victimization, feeling stuck, mental prison, restricted, powerlessness, blindfolded self-acceptance, new perspective, freedom, removing the blindfold, reclaiming power, seeing clearly">
+          <div class="lib-row-num">Eight</div>
+          <div class="lib-row-name">Eight of Swords</div>
+          <div class="lib-row-kw">Imprisonment</div>
+        </a>
+        <a class="lib-row" href="/cards/nine-of-swords.html" data-name="nine of swords" data-kw="anxiety, nightmares, fear, worry, trauma, mental anguish, dread, sleeplessness, overwhelm hope, reaching out, facing fears, beginning to heal, despair lifting, seeking help">
+          <div class="lib-row-num">Nine</div>
+          <div class="lib-row-name">Nine of Swords</div>
+          <div class="lib-row-kw">Anxiety</div>
+        </a>
+        <a class="lib-row" href="/cards/ten-of-swords.html" data-name="ten of swords" data-kw="painful ending, defeat, rock bottom, betrayal, collapse, crisis, hitting the lowest point recovery beginning, inevitable end accepted, only way is up, releasing the past, survival">
+          <div class="lib-row-num">Ten</div>
+          <div class="lib-row-name">Ten of Swords</div>
+          <div class="lib-row-kw">Painful ending</div>
+        </a>
+        <a class="lib-row" href="/cards/page-of-swords.html" data-name="page of swords" data-kw="curiosity, restlessness, mental energy, sharp wit, new ideas, vigilance, communication, thirst for knowledge deception, manipulation, all talk no action, gossip, mental restlessness, using words as weapons">
+          <div class="lib-row-num">Page</div>
+          <div class="lib-row-name">Page of Swords</div>
+          <div class="lib-row-kw">Curiosity</div>
+        </a>
+        <a class="lib-row" href="/cards/knight-of-swords.html" data-name="knight of swords" data-kw="ambition, action, fast-moving, direct, driven, fearless, charging ahead, assertive, decisive reckless, no direction, disregard for consequences, unpredictable, volatile, all charge no wisdom">
+          <div class="lib-row-num">Knight</div>
+          <div class="lib-row-name">Knight of Swords</div>
+          <div class="lib-row-kw">Ambition</div>
+        </a>
+        <a class="lib-row" href="/cards/queen-of-swords.html" data-name="queen of swords" data-kw="clear thinking, independence, direct communication, perceptive, sharp intellect, honest, boundaries, complexity cold-hearted, bitter, cruel, manipulative, overly critical, using intelligence to wound, emotional walls">
+          <div class="lib-row-num">Queen</div>
+          <div class="lib-row-name">Queen of Swords</div>
+          <div class="lib-row-kw">Clear thinking</div>
+        </a>
+        <a class="lib-row" href="/cards/king-of-swords.html" data-name="king of swords" data-kw="intellectual authority, truth, clarity, discipline, strategic thinking, ethics, head over heart, clear judgment manipulative, cruel, tyrannical, using intellect for harm, cold, abuse of power, dishonest authority">
+          <div class="lib-row-num">King</div>
+          <div class="lib-row-name">King of Swords</div>
+          <div class="lib-row-kw">Intellectual authority</div>
+        </a>
+    </div>
+    <div class="lib-section" data-suit="pentacles">
+      <div class="lib-section-hd">⬡  Pentacles</div>
+      
+        <a class="lib-row" href="/cards/ace-of-pentacles.html" data-name="ace of pentacles" data-kw="new opportunity, prosperity, abundance, manifestation, new venture, financial beginnings, grounded potential lost opportunity, missed chance, poor planning, bad investment, lack of stability, instability">
+          <div class="lib-row-num">Ace</div>
+          <div class="lib-row-name">Ace of Pentacles</div>
+          <div class="lib-row-kw">New opportunity</div>
+        </a>
+        <a class="lib-row" href="/cards/two-of-pentacles.html" data-name="two of pentacles" data-kw="balance, juggling priorities, adaptability, time management, flexible, managing change, keeping it together overwhelmed, dropping the ball, disorganized, loss of balance, taking on too much, financial stress">
+          <div class="lib-row-num">Two</div>
+          <div class="lib-row-name">Two of Pentacles</div>
+          <div class="lib-row-kw">Balance</div>
+        </a>
+        <a class="lib-row" href="/cards/three-of-pentacles.html" data-name="three of pentacles" data-kw="teamwork, collaboration, skill, apprenticeship, learning, building together, planning, recognition lack of teamwork, disorganized, conflict, poor planning, working in isolation, clashing egos">
+          <div class="lib-row-num">Three</div>
+          <div class="lib-row-name">Three of Pentacles</div>
+          <div class="lib-row-kw">Teamwork</div>
+        </a>
+        <a class="lib-row" href="/cards/four-of-pentacles.html" data-name="four of pentacles" data-kw="security, saving, financial stability, conservation, holding on, control, frugality, caution greed, possessiveness, hoarding, financial insecurity, materialism, letting go, fear of loss">
+          <div class="lib-row-num">Four</div>
+          <div class="lib-row-name">Four of Pentacles</div>
+          <div class="lib-row-kw">Security</div>
+        </a>
+        <a class="lib-row" href="/cards/five-of-pentacles.html" data-name="five of pentacles" data-kw="hardship, financial loss, poverty, insecurity, struggle, isolation, worry, lack, feeling left out in the cold recovery, improving finances, overcoming hardship, asking for help, spiritual renewal, finding support">
+          <div class="lib-row-num">Five</div>
+          <div class="lib-row-name">Five of Pentacles</div>
+          <div class="lib-row-kw">Hardship</div>
+        </a>
+        <a class="lib-row" href="/cards/six-of-pentacles.html" data-name="six of pentacles" data-kw="generosity, charity, giving, sharing, balance, fairness, receiving help, support, community strings attached, power imbalance, stinginess, one-sided giving, withholding, bad debt">
+          <div class="lib-row-num">Six</div>
+          <div class="lib-row-name">Six of Pentacles</div>
+          <div class="lib-row-kw">Generosity</div>
+        </a>
+        <a class="lib-row" href="/cards/seven-of-pentacles.html" data-name="seven of pentacles" data-kw="patience, investment, long-term vision, perseverance, hard work, pausing to assess, waiting for results impatience, wasted effort, lack of results, poor investment, cutting corners, giving up too soon">
+          <div class="lib-row-num">Seven</div>
+          <div class="lib-row-name">Seven of Pentacles</div>
+          <div class="lib-row-kw">Patience</div>
+        </a>
+        <a class="lib-row" href="/cards/eight-of-pentacles.html" data-name="eight of pentacles" data-kw="diligence, mastery, skill-building, dedication, craftsmanship, focus, hard work, apprenticeship, high standards lack of motivation, poor quality, shortcuts, uninspired, no commitment, going through the motions">
+          <div class="lib-row-num">Eight</div>
+          <div class="lib-row-name">Eight of Pentacles</div>
+          <div class="lib-row-kw">Diligence</div>
+        </a>
+        <a class="lib-row" href="/cards/nine-of-pentacles.html" data-name="nine of pentacles" data-kw="abundance, luxury, self-sufficiency, independence, financial success, enjoying the fruits of labor, refinement reckless spending, financial dependency, living beyond means, lack of self-discipline, false success">
+          <div class="lib-row-num">Nine</div>
+          <div class="lib-row-name">Nine of Pentacles</div>
+          <div class="lib-row-kw">Abundance</div>
+        </a>
+        <a class="lib-row" href="/cards/ten-of-pentacles.html" data-name="ten of pentacles" data-kw="legacy, wealth, family, long-term security, inheritance, permanence, abundance, generational stability family conflict, financial failure, loss of legacy, instability, fleeting success, broken foundations">
+          <div class="lib-row-num">Ten</div>
+          <div class="lib-row-name">Ten of Pentacles</div>
+          <div class="lib-row-kw">Legacy</div>
+        </a>
+        <a class="lib-row" href="/cards/page-of-pentacles.html" data-name="page of pentacles" data-kw="ambition, diligence, focus, grounded, new financial beginnings, student energy, practical dreaming, loyalty lack of commitment, procrastination, laziness, missed opportunities, unfocused, unrealistic goals">
+          <div class="lib-row-num">Page</div>
+          <div class="lib-row-name">Page of Pentacles</div>
+          <div class="lib-row-kw">Ambition</div>
+        </a>
+        <a class="lib-row" href="/cards/knight-of-pentacles.html" data-name="knight of pentacles" data-kw="hard work, reliability, patience, thoroughness, responsibility, methodical, long-term thinking, dependable laziness, stagnation, boredom, stuck in routine, uncreative, obsessive, all work no progress">
+          <div class="lib-row-num">Knight</div>
+          <div class="lib-row-name">Knight of Pentacles</div>
+          <div class="lib-row-kw">Hard work</div>
+        </a>
+        <a class="lib-row" href="/cards/queen-of-pentacles.html" data-name="queen of pentacles" data-kw="nurturing, practicality, financial security, warmth, abundance, grounded, resourceful, homemaker energy, creature comforts self-neglect, financial dependence, smothering, work-life imbalance, jealousy, insecurity, materialism">
+          <div class="lib-row-num">Queen</div>
+          <div class="lib-row-name">Queen of Pentacles</div>
+          <div class="lib-row-kw">Nurturing</div>
+        </a>
+        <a class="lib-row" href="/cards/king-of-pentacles.html" data-name="king of pentacles" data-kw="abundance, wealth, leadership, security, entrepreneurship, reliability, generosity, business mastery, legacy greed, materialism, financial recklessness, stubbornness, obsession with status, corruption, using wealth as control">
+          <div class="lib-row-num">King</div>
+          <div class="lib-row-name">King of Pentacles</div>
+          <div class="lib-row-kw">Abundance</div>
+        </a>
+    </div></div>
+
+    <script>
+      (function() {
+        var input = document.getElementById('card-search');
+        var sections = document.querySelectorAll('#card-sections .lib-section');
+        var empty = document.getElementById('empty');
+        input.addEventListener('input', function() {
+          var q = input.value.toLowerCase().trim();
+          var any = false;
+          sections.forEach(function(sec) {
+            var rows = sec.querySelectorAll('.lib-row');
+            var sectionAny = false;
+            rows.forEach(function(r) {
+              var match = !q || r.dataset.name.indexOf(q) !== -1 || r.dataset.kw.indexOf(q) !== -1;
+              r.style.display = match ? '' : 'none';
+              if (match) sectionAny = true;
+            });
+            sec.style.display = sectionAny ? '' : 'none';
+            if (sectionAny) any = true;
+          });
+          empty.style.display = any ? 'none' : 'block';
+        });
+      })();
+    </script>
+  
+</main>
+
+<footer id="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <p class="footer-brand-name">✦ Liminal Veil</p>
+        <p class="footer-brand-desc">A tarot companion for modern seekers. Step beyond the threshold.</p>
+        <a href="mailto:kim@ohizkimmie.com" class="footer-email">✉ &nbsp;kim@ohizkimmie.com</a>
+      </div>
+      <div>
+        <p class="footer-col-title">App</p>
+        <ul class="footer-links">
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#premium">Pricing</a></li>
+          <li><a href="/cards/">The 78 Cards</a></li>
+          <li><a href="/spreads/">Spread Library</a></li>
+          <li><a href="/#lunar">Lunar Guide</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Community</p>
+        <ul class="footer-links">
+          <li><a href="/#community">Social</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Support</p>
+        <ul class="footer-links">
+          <li><a href="/#faq">FAQ</a></li>
+          <li><a href="/#contact">Contact</a></li>
+          <li><a href="mailto:kim@ohizkimmie.com">Support</a></li>
+          <li><a href="mailto:kim@ohizkimmie.com">Press</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 Liminal Veil. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu toggle (same as homepage)
+  function toggleMenu() {
+    var m = document.getElementById('mobile-menu');
+    if (m) m.style.display = (m.style.display === 'none' || !m.style.display) ? 'block' : 'none';
+  }
+</script>
+</body>
+</html>
