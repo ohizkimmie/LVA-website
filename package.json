@@ -1,0 +1,10 @@
+{
+  "name": "lva-marketing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Liminal Veil marketing site (liminalveil.app) — static HTML, no build step on deploy. The build:library script regenerates the public card and spread library pages from data/.",
+  "type": "module",
+  "scripts": {
+    "build:library": "node scripts/build-library.mjs"
+  }
+}
