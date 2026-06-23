@@ -17,6 +17,7 @@ import { SPREADS } from '../data/spreads.mjs';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://liminalveil.app';
 const APP  = 'https://app.liminalveil.app';
+const OG_IMAGE = `${SITE}/og-default.jpg`;
 
 // ── Helpers ──────────────────────────────────────────────────────────
 const slugify = (s) => s
@@ -308,9 +309,14 @@ const pageShell = ({ title, description, canonical, jsonLd, header, footer, body
   <meta property="og:description" content="${escapeAttr(description)}" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="${escapeAttr(canonical)}" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content="${OG_IMAGE}" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Liminal Veil — Pull. Reflect. Know." />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${escapeAttr(title)}" />
   <meta name="twitter:description" content="${escapeAttr(description)}" />
+  <meta name="twitter:image" content="${OG_IMAGE}" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
