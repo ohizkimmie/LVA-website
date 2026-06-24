@@ -803,6 +803,23 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Liminal Veil",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "Web, iOS, Android",
+    "url": "https://liminalveil.app",
+    "description": "AI-powered tarot reading app with 78 illustrated cards, 18 spread layouts, lunar guidance, and a private journal.",
+    "offers": [
+      { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Monthly", "price": "5.55", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Annual", "price": "55", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Lifetime", "price": "111", "priceCurrency": "USD" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
       {
@@ -823,42 +840,18 @@
       },
       {
         "@type": "Question",
-        "name": "What's the difference between Monthly, Annual, and Lifetime?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "All three unlock the same features — pick whichever billing cadence fits you best."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I get started — do I need an account?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes — head to app.liminalveil.app and create a free account. The free Seeker tier gets you started right away; upgrade anytime if you want the paid features."
-        }
-      },
-      {
-        "@type": "Question",
         "name": "Is my journal private?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Absolutely. Your journal is yours alone — it includes an optional privacy lock so your readings stay hidden on your device. We take your data seriously: journal entries are encrypted and never used for training or shared with third parties."
+          "text": "Absolutely. Your journal is yours alone — it includes an optional privacy lock so your readings stay hidden on your device. Entries are encrypted and never used for AI training or shared with third parties."
         }
       },
       {
         "@type": "Question",
-        "name": "What is the card identification feature?",
+        "name": "Can I cancel anytime?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Snap a photo of any physical tarot card from any deck. Liminal Veil's AI will identify the card and immediately surface its full meaning, keywords, and reversed interpretation — making it a companion for any deck you own."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Will there be a mobile app?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Liminal Veil is built mobile-first and is designed to feel like a native app in your browser. Native iOS and Android apps are on the roadmap."
+          "text": "Yes. Monthly and Annual subscriptions can be cancelled at any time from your account — no questions, no friction. You keep access through the end of your billing period."
         }
       }
     ]
@@ -879,7 +872,7 @@
       <li><a href="#faq">FAQ</a></li>
     </ul>
     <div class="nav-cta">
-      <a href="https://app.liminalveil.app" class="btn btn-outline">Open the App</a>
+      <a href="https://app.liminalveil.app" class="btn btn-outline">Start Free</a>
       <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
         <span></span><span></span><span></span>
       </div>
@@ -895,8 +888,7 @@
     <li><a href="/spreads/" style="font-family:var(--font-display);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-mid);">Spreads</a></li>
     <li><a href="#premium" onclick="toggleMenu()" style="font-family:var(--font-display);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-mid);">Premium</a></li>
     <li><a href="#faq" onclick="toggleMenu()" style="font-family:var(--font-display);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-mid);">FAQ</a></li>
-    <li><a href="#contact" onclick="toggleMenu()" style="font-family:var(--font-display);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-mid);">Contact</a></li>
-    <li><a href="https://app.liminalveil.app" onclick="toggleMenu()" class="btn btn-primary" style="text-align:center;">Open the App</a></li>
+    <li><a href="https://app.liminalveil.app" onclick="toggleMenu()" class="btn btn-primary" style="text-align:center;">Pull Your First Card — Free</a></li>
   </ul>
 </div>
 
@@ -907,11 +899,11 @@
     <div class="hero-content">
       <p class="hero-eyebrow">The Tarot Companion for Modern Seekers</p>
       <img src="/logo-hero.jpg" alt="Liminal Veil — Pull. Reflect. Know." class="hero-logo" />
-      <h1 class="hero-title sr-only">Liminal Veil</h1>
+      <h1 class="hero-title sr-only">Liminal Veil — AI Tarot Reading App with Lunar Guidance</h1>
       <p class="hero-catchphrase sr-only">Pull. Reflect. Know.</p>
       <p class="hero-body">Step beyond the threshold. AI-powered readings, a personal journal, lunar guidance, and 78 cards — all woven into one mystical companion.</p>
       <div class="hero-actions">
-        <a href="https://app.liminalveil.app" class="btn btn-primary">✦ &nbsp;Open the App</a>
+        <a href="https://app.liminalveil.app" class="btn btn-primary">✦ &nbsp;Pull Your First Card — Free</a>
       </div>
       <div class="hero-badges">
         <div class="hero-badge">
@@ -951,49 +943,29 @@
     </div>
     <div class="features-grid">
       <div class="feature-card reveal">
-        <span class="feature-icon">🃏</span>
-        <p class="feature-name">Spread Library</p>
-        <p class="feature-desc">Choose from 18 hand-crafted spread layouts — from a simple daily pull to complex Celtic Cross and beyond. Free and premium spreads included.</p>
-        <span class="tag feature-badge">18 Spreads</span>
-      </div>
-      <div class="feature-card reveal">
         <span class="feature-icon">🤖</span>
         <p class="feature-name">AI-Powered Readings</p>
-        <p class="feature-desc">Receive nuanced, personalized interpretations powered by AI — blending traditional symbolism with your unique context and question.</p>
+        <p class="feature-desc">Receive nuanced, personalized interpretations — blending traditional symbolism with your unique context and question.</p>
         <span class="tag feature-badge">AI</span>
       </div>
       <div class="feature-card reveal">
+        <span class="feature-icon">🃏</span>
+        <p class="feature-name">Spread Library</p>
+        <p class="feature-desc">18 hand-crafted layouts — from a simple daily pull to the Celtic Cross and beyond. Free and premium spreads included.</p>
+        <span class="tag feature-badge">18 Spreads</span>
+      </div>
+      <div class="feature-card reveal">
         <span class="feature-icon">📖</span>
-        <p class="feature-name">Personal Journal</p>
-        <p class="feature-desc">Log every reading with mood tags, reflections, and notes. Your journal is private and locked — we never sell, share, or train AI on your personal data. What happens in the veil, stays in the veil.</p>
+        <p class="feature-name">Private Journal</p>
+        <p class="feature-desc">Every reading saved with mood tags and reflections. We never sell, share, or train AI on your entries. What happens in the veil, stays in the veil.</p>
       </div>
       <div class="feature-card reveal">
         <span class="feature-icon">🌙</span>
-        <p class="feature-name">Lunar Guidance</p>
-        <p class="feature-desc">Track all 8 moon phases with personalized tips for each. The Moon Spread adapts its wisdom to the current lunar cycle automatically.</p>
-      </div>
-      <div class="feature-card reveal">
-        <span class="feature-icon">📚</span>
-        <p class="feature-name">Browse All 78 Cards</p>
-        <p class="feature-desc">A complete illustrated reference for every card in the deck — upright and reversed meanings, keywords, and elemental correspondences.</p>
-      </div>
-      <div class="feature-card reveal">
-        <span class="feature-icon">📸</span>
-        <p class="feature-name">Identify a Card</p>
-        <p class="feature-desc">Snap a photo of any tarot card from any deck and Liminal Veil will identify it and surface its full meaning instantly.</p>
-        <span class="tag feature-badge">Premium</span>
-      </div>
-      <div class="feature-card reveal">
-        <span class="feature-icon">☀️</span>
-        <p class="feature-name">Today's Daily Draw</p>
-        <p class="feature-desc">Begin each morning with a single card pull — keywords, orientation, and a reflection prompt to ground your intention for the day.</p>
-      </div>
-      <div class="feature-card reveal">
-        <span class="feature-icon">🧠</span>
-        <p class="feature-name">Quiz Yourself</p>
-        <p class="feature-desc">Test your tarot knowledge across three difficulty levels — Beginner, Intermediate, and Advanced — and track your growth over time.</p>
+        <p class="feature-name">Lunar-Aware</p>
+        <p class="feature-desc">Tuned to all 8 moon phases. Readings carry the teaching of the current lunar cycle automatically.</p>
       </div>
     </div>
+    <p style="text-align:center;color:var(--text-dim);font-style:italic;margin-top:32px;font-size:0.95rem;">+ daily draw, full 78-card reference, photo card identification, and quiz mode — all inside.</p>
   </div>
 </section>
 
@@ -1020,34 +992,6 @@
     </div>
   </div>
 </section>
-
-<!-- ─────────────── LUNAR ─────────────── -->
-<section id="lunar">
-  <div class="container">
-    <div class="lunar-inner">
-      <div class="moon-phases reveal">
-        <div class="phase-item"><div class="phase-icon">🌑</div><div class="phase-name">New Moon</div></div>
-        <div class="phase-item"><div class="phase-icon">🌒</div><div class="phase-name">Waxing Crescent</div></div>
-        <div class="phase-item"><div class="phase-icon">🌓</div><div class="phase-name">First Quarter</div></div>
-        <div class="phase-item"><div class="phase-icon">🌔</div><div class="phase-name">Waxing Gibbous</div></div>
-        <div class="phase-item"><div class="phase-icon">🌕</div><div class="phase-name">Full Moon</div></div>
-        <div class="phase-item"><div class="phase-icon">🌖</div><div class="phase-name">Waning Gibbous</div></div>
-        <div class="phase-item"><div class="phase-icon">🌗</div><div class="phase-name">Third Quarter</div></div>
-        <div class="phase-item"><div class="phase-icon">🌘</div><div class="phase-name">Waning Crescent</div></div>
-      </div>
-      <div class="reveal">
-        <p class="section-label">Lunar Wisdom</p>
-        <h2 class="section-title">The Moon Guides Every Reading</h2>
-        <div class="divider" style="margin-left:0;"></div>
-        <p class="section-body">From setting intentions at the New Moon to releasing what no longer serves at the Third Quarter — each phase carries its own teaching, and your readings are met where the sky is.</p>
-        <br>
-        <p class="section-body" style="font-style:italic;color:var(--text-dim);">"Under the full moon, nothing stays hidden. What is being illuminated for you?"</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="rune-divider">✦ ✦ ✦</div>
 
 <!-- ─────────────── PREMIUM ─────────────── -->
 <section id="premium">
@@ -1122,46 +1066,6 @@
   </div>
 </section>
 
-<!-- ─────────────── BEGIN ─────────────── -->
-<section id="begin">
-  <div class="container">
-    <div class="beta-inner">
-      <div class="reveal">
-        <p class="section-label">Begin</p>
-        <h2 class="section-title">Begin Your<br>First <span class="gold">Reading</span></h2>
-        <div class="divider" style="margin-left:0;"></div>
-        <p class="section-body">The veil is open. Pull your first card in the time it takes to brew tea — a free account is all it takes to begin.</p>
-        <div class="beta-perks">
-          <div class="perk">
-            <span class="perk-icon">✦</span>
-            <div class="perk-text">
-              <strong>Create a free account</strong>
-              <span>Takes under a minute. The Seeker tier is yours, free forever.</span>
-            </div>
-          </div>
-          <div class="perk">
-            <span class="perk-icon">◈</span>
-            <div class="perk-text">
-              <strong>Choose a spread</strong>
-              <span>From a single-card daily draw to layered multi-card spreads, pick the shape your question needs.</span>
-            </div>
-          </div>
-          <div class="perk">
-            <span class="perk-icon">✧</span>
-            <div class="perk-text">
-              <strong>Pull. Reflect. Know.</strong>
-              <span>Cards revealed. Meanings surfaced. Your reading, saved to your private journal.</span>
-            </div>
-          </div>
-        </div>
-        <a href="https://app.liminalveil.app" class="btn btn-primary">
-          ✦ &nbsp;Open the App
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- TODO: Add real customer reviews here once the app has launched -->
 
 <!-- ─────────────── COMMUNITY ─────────────── -->
@@ -1213,100 +1117,24 @@
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
-          What's the difference between Monthly, Annual, and Lifetime?
-          <span class="faq-arrow">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">All three unlock the same features — see the pricing cards above and pick whichever billing cadence fits you best.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          How do I get started — do I need an account?
-          <span class="faq-arrow">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">Yes — head to <a href="https://app.liminalveil.app">app.liminalveil.app</a> and create a free account. The free Seeker tier gets you started right away; upgrade anytime if you want the paid features.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
           Is my journal private?
           <span class="faq-arrow">+</span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">Absolutely. Your journal is yours alone — it includes an optional privacy lock so your readings stay hidden on your device. We take your data seriously: journal entries are encrypted and never used for training or shared with third parties.</div>
+          <div class="faq-answer-inner">Absolutely. Your journal is yours alone — it includes an optional privacy lock so your readings stay hidden on your device. Entries are encrypted and never used for AI training or shared with third parties.</div>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
-          What is the card identification feature?
+          Can I cancel anytime?
           <span class="faq-arrow">+</span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">Snap a photo of any physical tarot card from any deck. Liminal Veil's AI will identify the card and immediately surface its full meaning, keywords, and reversed interpretation — making it a companion for any deck you own.</div>
+          <div class="faq-answer-inner">Yes. Monthly and Annual subscriptions can be cancelled at any time from your account — no questions, no friction. You keep access through the end of your billing period.</div>
         </div>
       </div>
 
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          Will there be a mobile app?
-          <span class="faq-arrow">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">Liminal Veil is built mobile-first and is designed to feel like a native app in your browser. Native iOS and Android apps are on the roadmap.</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ─────────────── CONTACT ─────────────── -->
-<section id="contact">
-  <div class="container">
-    <div class="contact-inner">
-      <div class="contact-info reveal">
-        <p class="section-label">Reach Out</p>
-        <h2 class="section-title">Get in Touch</h2>
-        <div class="divider" style="margin-left:0;"></div>
-        <p class="section-body">Questions, partnership inquiries, press, or just wanting to say hello — we'd love to hear from seekers.</p>
-        <br>
-        <div class="contact-items">
-          <div class="contact-item">
-            <div class="contact-item-icon">✉️</div>
-            <div>
-              <p class="contact-item-label">General</p>
-              <a href="mailto:support@liminalveil.app" class="contact-item-value">support@liminalveil.app</a>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">🤝</div>
-            <div>
-              <p class="contact-item-label">Partnerships &amp; Press</p>
-              <a href="mailto:support@liminalveil.app" class="contact-item-value">support@liminalveil.app</a>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">🔧</div>
-            <div>
-              <p class="contact-item-label">Support</p>
-              <a href="mailto:support@liminalveil.app" class="contact-item-value">support@liminalveil.app</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <form class="contact-form reveal" onsubmit="handleContact(event)">
-        <input type="text" class="contact-input" placeholder="Your name" required />
-        <input type="email" class="contact-input" placeholder="your@email.com" required />
-        <input type="text" class="contact-input" placeholder="Subject" />
-        <textarea class="contact-input" placeholder="Your message..." required></textarea>
-        <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Send Message</button>
-        <p id="contact-success" style="display:none;color:var(--gold);font-style:italic;font-size:0.9rem;">✦ Your message has been sent. We'll respond within 48 hours.</p>
-      </form>
     </div>
   </div>
 </section>
@@ -1327,7 +1155,6 @@
           <li><a href="#premium">Pricing</a></li>
           <li><a href="/cards/">The 78 Cards</a></li>
           <li><a href="/spreads/">Spread Library</a></li>
-          <li><a href="#lunar">Lunar Guide</a></li>
         </ul>
       </div>
       <div>
@@ -1340,8 +1167,7 @@
         <p class="footer-col-title">Support</p>
         <ul class="footer-links">
           <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="mailto:support@liminalveil.app">Support</a></li>
+          <li><a href="mailto:support@liminalveil.app">Contact</a></li>
           <li><a href="mailto:support@liminalveil.app">Press</a></li>
         </ul>
       </div>
@@ -1391,39 +1217,6 @@
       if (res.ok) {
         document.getElementById('signup-form').style.display = 'none';
         document.getElementById('signup-success').style.display = 'block';
-      } else {
-        btn.textContent = 'Try Again';
-        btn.disabled = false;
-      }
-    } catch {
-      btn.textContent = 'Try Again';
-      btn.disabled = false;
-    }
-  }
-
-  // Contact form
-  async function handleContact(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('button');
-    const fields = e.target.querySelectorAll('input, textarea');
-    const data = {
-      name:    fields[0].value,
-      email:   fields[1].value,
-      subject: fields[2].value,
-      message: fields[3].value,
-      _subject: `Contact from ${fields[0].value} — Liminal Veil`
-    };
-    btn.textContent = 'Sending…';
-    btn.disabled = true;
-    try {
-      const res = await fetch(`https://formspree.io/f/${CONTACT_FORM_ID}`, {
-        method: 'POST',
-        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
-      if (res.ok) {
-        document.getElementById('contact-success').style.display = 'block';
-        btn.style.display = 'none';
       } else {
         btn.textContent = 'Try Again';
         btn.disabled = false;
