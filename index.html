@@ -229,6 +229,19 @@
       animation: float 6s ease-in-out infinite;
     }
     .hero-moon svg { width: 100%; height: 100%; }
+    .hero-logo {
+      display: block;
+      width: clamp(280px, 60vw, 560px);
+      height: auto;
+      margin: 0 auto 24px;
+      animation: float 6s ease-in-out infinite;
+    }
+    .sr-only {
+      position: absolute !important;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
@@ -892,19 +905,10 @@
   <div class="hero-bg"></div>
   <div class="container">
     <div class="hero-content">
-      <div class="hero-moon">
-        <svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="45" cy="45" r="44" stroke="rgba(201,168,76,0.2)" stroke-width="1"/>
-          <path d="M45 8 C28 8 14 22 14 45 C14 68 28 82 45 82 C35 72 29 59 29 45 C29 31 35 18 45 8Z" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="1.2"/>
-          <circle cx="45" cy="45" r="26" fill="none" stroke="rgba(201,168,76,0.1)" stroke-width="1" stroke-dasharray="3 4"/>
-          <circle cx="45" cy="45" r="3" fill="#C9A84C" opacity="0.7"/>
-          <text x="45" y="16" text-anchor="middle" font-size="8" fill="rgba(201,168,76,0.5)" font-family="serif">✦</text>
-          <text x="45" y="78" text-anchor="middle" font-size="8" fill="rgba(201,168,76,0.5)" font-family="serif">✦</text>
-        </svg>
-      </div>
       <p class="hero-eyebrow">The Tarot Companion for Modern Seekers</p>
-      <h1 class="hero-title">Liminal<br><span class="gold">Veil</span></h1>
-      <p class="hero-catchphrase">Pull. Reflect. Know.</p>
+      <img src="/logo-hero.jpg" alt="Liminal Veil — Pull. Reflect. Know." class="hero-logo" />
+      <h1 class="hero-title sr-only">Liminal Veil</h1>
+      <p class="hero-catchphrase sr-only">Pull. Reflect. Know.</p>
       <p class="hero-body">Step beyond the threshold. AI-powered readings, a personal journal, lunar guidance, and 78 cards — all woven into one mystical companion.</p>
       <div class="hero-actions">
         <a href="https://app.liminalveil.app" class="btn btn-primary">✦ &nbsp;Open the App</a>
