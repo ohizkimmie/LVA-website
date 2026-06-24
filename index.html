@@ -351,17 +351,23 @@
       align-items: center;
     }
     .preview-text .section-body { margin-bottom: 28px; }
-    .preview-screens { display: flex; gap: 16px; justify-content: center; }
+    .preview-screens { display: flex; gap: 16px; justify-content: center; align-items: flex-start; }
     .mock-phone {
-      width: 160px;
+      width: 200px;
       flex-shrink: 0;
       background: var(--surface-2);
       border: 1px solid var(--gold-border);
       border-radius: 24px;
-      padding: 14px 10px;
+      padding: 8px;
       box-shadow: 0 0 40px rgba(201,168,76,0.08);
     }
-    .mock-phone.large { width: 186px; }
+    .mock-phone.large { width: 230px; }
+    .mock-phone img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 18px;
+    }
     .mock-screen {
       background: var(--surface-1);
       border-radius: 16px;
@@ -773,8 +779,8 @@
     @media (max-width: 480px) {
       .footer-inner { grid-template-columns: 1fr; }
       .moon-phases { grid-template-columns: repeat(2, 1fr); }
-      .mock-phone { width: 130px; }
-      .mock-phone.large { width: 150px; }
+      .mock-phone { width: 145px; }
+      .mock-phone.large { width: 165px; }
     }
 
     .rune-divider { text-align: center; font-size: 0.8rem; letter-spacing: 0.5em; color: var(--gold-border); margin: 10px 0; user-select: none; }
@@ -1005,29 +1011,10 @@
       </div>
       <div class="preview-screens reveal">
         <div class="mock-phone">
-          <div class="mock-screen">
-            <p class="mock-title">Today's Draw</p>
-            <div class="mock-card"><span class="mock-card-icon">🌙</span></div>
-            <p class="mock-title" style="color:var(--text-dim);font-size:7px;">The High Priestess · Reversed</p>
-            <div style="width:100%;height:1px;background:var(--gold-border);"></div>
-            <p class="mock-title" style="color:var(--text-dim);font-size:7px;font-family:var(--font-serif);text-transform:none;letter-spacing:0.04em;font-style:italic;">intuition · mystery · inner voice</p>
-          </div>
+          <img src="/screenshots/app-spread-layout.jpg" alt="New Moon Spread layout in the Liminal Veil app — 5 cards arranged in a circle with moon-phase strip across the top" loading="lazy" />
         </div>
         <div class="mock-phone large" style="align-self:flex-end;">
-          <div class="mock-screen">
-            <p class="mock-title">Reveal the Veil</p>
-            <div class="mock-row">
-              <div class="mock-row-card">🃏</div>
-              <div class="mock-row-card">🌙</div>
-            </div>
-            <div class="mock-row">
-              <div class="mock-row-card">📖</div>
-              <div class="mock-row-card">📚</div>
-            </div>
-            <div class="mock-card" style="height:50px;margin-top:4px;">
-              <span style="font-family:var(--font-display);font-size:8px;letter-spacing:0.14em;color:var(--gold);">NEW MOON · Set Intentions</span>
-            </div>
-          </div>
+          <img src="/screenshots/app-reading.jpg" alt="A revealed New Moon reading in Liminal Veil — five cards drawn with the AI opening reflection: 'This reading offers a window, not a wall.'" loading="lazy" />
         </div>
       </div>
     </div>
