@@ -512,7 +512,7 @@ function renderCardDetail(c, { header, footer }) {
     <div class="cd-hero">
       <div class="cd-num">${escapeHtml(numLabel)}</div>
       <div class="cd-frame"><span class="cd-sym">${escapeHtml(c.sym)}</span></div>
-      <div class="cd-name">${escapeHtml(c.name)}</div>
+      <h1 class="cd-name">${escapeHtml(c.name)}</h1>
     </div>
 
     <div class="kw-box">
@@ -521,12 +521,12 @@ function renderCardDetail(c, { header, footer }) {
     </div>
 
     <div class="meaning-block">
-      <div class="mb-label">Narrative Meaning</div>
+      <h2 class="mb-label">Narrative Meaning</h2>
       <div class="mb-text">${escapeHtml(c.meaning).replace(/\n/g, '<br /><br />')}</div>
     </div>
 
     <div class="practical-box">
-      <div class="pb-label">Practical Note</div>
+      <h2 class="pb-label">Practical Note</h2>
       <div class="pb-text">${escapeHtml(c.practical)}</div>
     </div>
 
